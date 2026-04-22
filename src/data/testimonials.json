@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1",
+    "name": "Sarah Mitchell",
+    "location": "London, UK",
+    "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
+    "rating": 5,
+    "text": "Raniya Travel crafted the most extraordinary Maldives experience for our honeymoon. Every detail was flawless — from the overwater villa to the private sunset cruise. Truly world-class service.",
+    "package": "Maldives Luxury Escape",
+    "date": "March 2024"
+  },
+  {
+    "id": "2",
+    "name": "James & Emma Thompson",
+    "location": "Manchester, UK",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+    "rating": 5,
+    "text": "Our Dubai family holiday exceeded every expectation. The team handled everything seamlessly — desert safaris, Burj Khalifa, pristine beaches. The children still talk about it six months on.",
+    "package": "Dubai Family Adventure",
+    "date": "January 2024"
+  },
+  {
+    "id": "3",
+    "name": "Priya Sharma",
+    "location": "Birmingham, UK",
+    "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+    "rating": 5,
+    "text": "The Golden Triangle India tour was a cultural revelation. Raniya's local connections got us exclusive access that no guidebook mentions. Absolute perfection from start to finish.",
+    "package": "India Golden Triangle",
+    "date": "February 2024"
+  },
+  {
+    "id": "4",
+    "name": "Robert Chen",
+    "location": "Edinburgh, UK",
+    "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+    "rating": 5,
+    "text": "Bali was everything I dreamed of and more. The private villa, the temple ceremonies, the sunrise at Mount Batur — Raniya made it all effortless. I'll be booking again very soon.",
+    "package": "Bali Cultural Immersion",
+    "date": "April 2024"
+  }
+]

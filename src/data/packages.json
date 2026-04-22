@@ -1,0 +1,608 @@
+[
+  {
+    "id": "1",
+    "slug": "maldives-luxury-escape",
+    "title": "Maldives Luxury Escape",
+    "subtitle": "Overwater villas, crystal lagoons & pristine sands",
+    "destination": "Maldives",
+    "duration": "7 Nights / 8 Days",
+    "durationDays": 7,
+    "price": 3499,
+    "originalPrice": 4200,
+    "currency": "GBP",
+    "category": "Beach & Islands",
+    "tags": ["Beach", "Luxury", "Honeymoon", "Snorkelling"],
+    "heroImage": "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=1920&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=1200&q=80",
+      "https://images.unsplash.com/photo-1540202404-a2f29016b523?w=1200&q=80",
+      "https://images.unsplash.com/photo-1551918120-9739cb430c6d?w=1200&q=80",
+      "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1200&q=80"
+    ],
+    "overview": "Escape to paradise in the Maldives — a breathtaking archipelago of 1,200 coral islands scattered across the Indian Ocean. This carefully curated luxury escape places you in an overwater villa where the turquoise lagoon stretches endlessly beneath your glass floor. Experience world-class diving, private sunset cruises, and spa rituals using indigenous ingredients.",
+    "highlights": [
+      "Luxury overwater villa with direct ocean access",
+      "Private sunset dolphin cruise",
+      "Coral reef snorkelling with marine biologist guide",
+      "Couples spa treatment with ocean views",
+      "Sunset beach dinner under the stars",
+      "Return speedboat transfers from Malé airport"
+    ],
+    "included": [
+      "Return flights from London (Heathrow)",
+      "7 nights overwater villa accommodation",
+      "All meals (breakfast, lunch & dinner)",
+      "All non-motorised water sports",
+      "Airport-resort speedboat transfers",
+      "Welcome amenity & turndown service",
+      "24/7 UK-based travel support"
+    ],
+    "excluded": [
+      "Travel insurance",
+      "Visa fees (if applicable)",
+      "Alcoholic beverages",
+      "Motorised water sports",
+      "Gratuities"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrival in Paradise",
+        "description": "Fly from London to Malé, Maldives. Upon arrival, your dedicated host meets you for a scenic speedboat transfer to your resort. Check into your overwater villa, freshen up, and enjoy a welcome champagne as the sun sets over the Indian Ocean.",
+        "meals": "Dinner",
+        "accommodation": "Overwater Villa"
+      },
+      {
+        "day": 2,
+        "title": "Ocean Exploration",
+        "description": "Begin with a sunrise yoga session on your villa deck. After a leisurely breakfast, embark on a guided snorkelling expedition with a marine biologist. The afternoon is yours to relax in your private plunge pool.",
+        "meals": "Breakfast, Lunch & Dinner",
+        "accommodation": "Overwater Villa"
+      },
+      {
+        "day": 3,
+        "title": "Island Hopping Adventure",
+        "description": "Discover uninhabited sandbanks and local fishing villages on a private island-hopping excursion. Enjoy a gourmet picnic lunch on a deserted beach. Return for sunset cocktails at the overwater bar.",
+        "meals": "Breakfast, Lunch & Dinner",
+        "accommodation": "Overwater Villa"
+      },
+      {
+        "day": 4,
+        "title": "Spa & Serenity",
+        "description": "A deeply restorative day at the award-winning spa. Enjoy a 90-minute couples' treatment incorporating local botanicals. Spend the afternoon reading on your private deck above the lagoon.",
+        "meals": "Breakfast, Lunch & Dinner",
+        "accommodation": "Overwater Villa"
+      },
+      {
+        "day": 5,
+        "title": "Sunset Dolphin Cruise",
+        "description": "Spend the morning diving or snorkelling at pristine coral reefs. This evening, board a traditional dhoni boat for a sunset dolphin cruise — one of the Maldives' most magical experiences.",
+        "meals": "Breakfast, Lunch & Dinner",
+        "accommodation": "Overwater Villa"
+      },
+      {
+        "day": 6,
+        "title": "Under the Stars",
+        "description": "A morning of complete leisure before your private beach dinner tonight. As the sun dips below the horizon, dine on freshly caught seafood by candlelight on your own stretch of pristine sand.",
+        "meals": "Breakfast, Lunch & Dinner",
+        "accommodation": "Overwater Villa"
+      },
+      {
+        "day": 7,
+        "title": "Final Sunrise",
+        "description": "Watch your last sunrise over the Indian Ocean from your villa deck. Enjoy a final indulgent breakfast before the speedboat transfer to Malé airport for your return flight.",
+        "meals": "Breakfast",
+        "accommodation": "Overwater Villa"
+      }
+    ],
+    "instagramVideos": [
+      "https://www.instagram.com/reel/example1/",
+      "https://www.instagram.com/reel/example2/"
+    ],
+    "featured": true,
+    "popular": true,
+    "rating": 4.9,
+    "reviewCount": 127
+  },
+  {
+    "id": "2",
+    "slug": "dubai-family-adventure",
+    "title": "Dubai Family Adventure",
+    "subtitle": "Desert safaris, skyscrapers & golden beaches",
+    "destination": "Dubai",
+    "duration": "5 Nights / 6 Days",
+    "durationDays": 5,
+    "price": 2199,
+    "originalPrice": 2800,
+    "currency": "GBP",
+    "category": "City & Culture",
+    "tags": ["Family", "City", "Desert", "Adventure"],
+    "heroImage": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1920&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=1200&q=80",
+      "https://images.unsplash.com/photo-1526495124232-a04e1849168c?w=1200&q=80",
+      "https://images.unsplash.com/photo-1606215058882-78f3e800e89a?w=1200&q=80",
+      "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=1200&q=80"
+    ],
+    "overview": "Dubai is the world's most ambitious city — where record-breaking architecture meets ancient desert culture. This family adventure balances adrenaline-fuelled desert safaris with cultural immersion, world-class shopping, and relaxation on pristine beaches. Perfect for families seeking a memorable holiday with something for everyone.",
+    "highlights": [
+      "Burj Khalifa 'At the Top' experience (Level 124)",
+      "Evening desert safari with BBQ dinner",
+      "Dubai Marina dhow cruise dinner",
+      "Gold & Spice Souk walking tour",
+      "Aquaventure Waterpark tickets",
+      "Dubai Frame panoramic views"
+    ],
+    "included": [
+      "Return flights from London",
+      "5 nights 5-star hotel accommodation",
+      "Daily breakfast",
+      "Private airport transfers",
+      "All listed excursions & activities",
+      "UK travel documentation support"
+    ],
+    "excluded": [
+      "Travel insurance",
+      "Lunches & dinners (except listed)",
+      "Personal shopping",
+      "Visa fees"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Welcome to Dubai",
+        "description": "Arrive at Dubai International Airport and transfer to your 5-star hotel. Spend the afternoon at leisure — perhaps the hotel pool. This evening, take a stroll along the iconic Dubai Fountain and Souk Madinat Jumeirah.",
+        "meals": "Breakfast",
+        "accommodation": "5-Star Dubai Hotel"
+      },
+      {
+        "day": 2,
+        "title": "Sky High Dubai",
+        "description": "Morning visit to the Burj Khalifa — ride the world's fastest elevator to Level 124 for panoramic city views. Afternoon at Dubai Mall including the Dubai Aquarium. Evening stroll along the Dubai Canal.",
+        "meals": "Breakfast",
+        "accommodation": "5-Star Dubai Hotel"
+      },
+      {
+        "day": 3,
+        "title": "Desert Safari",
+        "description": "Afternoon pick-up for your red dune desert safari. Experience dune bashing, camel riding, sandboarding, and henna painting. Enjoy a magnificent BBQ dinner under the stars with traditional entertainment.",
+        "meals": "Breakfast & Dinner",
+        "accommodation": "5-Star Dubai Hotel"
+      },
+      {
+        "day": 4,
+        "title": "Waterpark & Marina",
+        "description": "Full day at Aquaventure Waterpark on the Palm Jumeirah — one of the world's best water parks. Evening dhow cruise along Dubai Marina with dinner as you pass glittering skyscrapers.",
+        "meals": "Breakfast & Dinner",
+        "accommodation": "5-Star Dubai Hotel"
+      },
+      {
+        "day": 5,
+        "title": "Heritage & Gold",
+        "description": "Morning tour of old Dubai — visit the Gold Souk, Spice Souk, and take an Abra crossing over Dubai Creek. Afternoon visit to Dubai Frame. Final evening for last-minute shopping or spa.",
+        "meals": "Breakfast",
+        "accommodation": "5-Star Dubai Hotel"
+      }
+    ],
+    "instagramVideos": [
+      "https://www.instagram.com/reel/example3/"
+    ],
+    "featured": true,
+    "popular": true,
+    "rating": 4.8,
+    "reviewCount": 94
+  },
+  {
+    "id": "3",
+    "slug": "bali-cultural-immersion",
+    "title": "Bali Cultural Immersion",
+    "subtitle": "Sacred temples, rice terraces & jungle hideaways",
+    "destination": "Bali",
+    "duration": "8 Nights / 9 Days",
+    "durationDays": 8,
+    "price": 2649,
+    "currency": "GBP",
+    "category": "Culture & Wellness",
+    "tags": ["Culture", "Wellness", "Nature", "Spiritual"],
+    "heroImage": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1920&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=1200&q=80",
+      "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=1200&q=80",
+      "https://images.unsplash.com/photo-1604999333679-b86d54738315?w=1200&q=80",
+      "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?w=1200&q=80"
+    ],
+    "overview": "Bali is the Island of the Gods — a place where ancient Hindu ceremonies, emerald rice terraces, and volcanic mountains create an atmosphere unlike anywhere on Earth. This immersive journey takes you beyond the tourist trail, into the heart of Balinese culture, through spiritual ceremonies, traditional cooking classes, and private villa retreats.",
+    "highlights": [
+      "Private villa stay in Ubud's rice terraces",
+      "Sunrise trek to Mount Batur summit",
+      "Sacred Tirta Empul water purification ceremony",
+      "Traditional Balinese cooking class",
+      "Seminyak beach sunset & world-class dining",
+      "Tanah Lot sea temple at golden hour"
+    ],
+    "included": [
+      "Return flights from London",
+      "8 nights private villa accommodation",
+      "Daily breakfast & cooking class lunch",
+      "Private driver throughout",
+      "All listed cultural experiences",
+      "Airport transfers"
+    ],
+    "excluded": [
+      "Travel insurance",
+      "Lunches & dinners (except listed)",
+      "Spa treatments",
+      "Personal expenses"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrival in Ubud",
+        "description": "Land at Ngurah Rai Airport and transfer to your private villa in Ubud. Settle into your jungle hideaway with its infinity pool overlooking rice paddies. Evening welcome dinner at a famous warung.",
+        "meals": "Dinner",
+        "accommodation": "Private Ubud Villa"
+      },
+      {
+        "day": 2,
+        "title": "Sacred Temples",
+        "description": "Visit Tirta Empul temple for the traditional water purification ritual. Explore Goa Gajah (Elephant Cave) and the royal Ubud Palace. Afternoon at leisure to explore Ubud's art galleries.",
+        "meals": "Breakfast",
+        "accommodation": "Private Ubud Villa"
+      },
+      {
+        "day": 3,
+        "title": "Volcano Summit",
+        "description": "Pre-dawn start for the 2-hour summit trek to Mount Batur. Watch the sunrise explode over Lake Batur and Mount Agung from the crater rim at 1,717m. Return to the villa for a well-deserved rest.",
+        "meals": "Breakfast",
+        "accommodation": "Private Ubud Villa"
+      },
+      {
+        "day": 4,
+        "title": "Flavours of Bali",
+        "description": "Morning visit to a local market to select fresh ingredients. Traditional cooking class in a family compound learning five authentic dishes. Afternoon free for spa treatment (own account).",
+        "meals": "Breakfast & Lunch",
+        "accommodation": "Private Ubud Villa"
+      },
+      {
+        "day": 5,
+        "title": "Rice Terraces & Craft",
+        "description": "Explore the UNESCO-listed Tegalalang Rice Terraces at dawn before tourists arrive. Visit master silversmiths and wood carvers in traditional craft villages. Sunset at Campuhan Ridge Walk.",
+        "meals": "Breakfast",
+        "accommodation": "Private Ubud Villa"
+      },
+      {
+        "day": 6,
+        "title": "Move to Seminyak",
+        "description": "Transfer south to chic Seminyak. Afternoon settling into your beachfront villa. Sunset cocktails at a famous cliff-top bar. Dinner at one of Bali's top-rated restaurants.",
+        "meals": "Breakfast",
+        "accommodation": "Seminyak Beach Villa"
+      },
+      {
+        "day": 7,
+        "title": "Tanah Lot & Beach",
+        "description": "Morning beach time. Afternoon visit to the iconic Tanah Lot sea temple during golden hour — one of the most photographed scenes in Asia. Beach club dinner with live music.",
+        "meals": "Breakfast",
+        "accommodation": "Seminyak Beach Villa"
+      },
+      {
+        "day": 8,
+        "title": "Final Day in Paradise",
+        "description": "Leisurely final morning at your private villa pool. A last Balinese massage before afternoon transfer to the airport for your overnight flight home.",
+        "meals": "Breakfast",
+        "accommodation": "Seminyak Beach Villa"
+      }
+    ],
+    "instagramVideos": [
+      "https://www.instagram.com/reel/example4/",
+      "https://www.instagram.com/reel/example5/"
+    ],
+    "featured": true,
+    "popular": false,
+    "rating": 4.9,
+    "reviewCount": 83
+  },
+  {
+    "id": "4",
+    "slug": "india-golden-triangle",
+    "title": "India Golden Triangle",
+    "subtitle": "Taj Mahal, royal forts & spice-scented bazaars",
+    "destination": "India",
+    "duration": "9 Nights / 10 Days",
+    "durationDays": 9,
+    "price": 1899,
+    "currency": "GBP",
+    "category": "Culture & Heritage",
+    "tags": ["Heritage", "Culture", "History", "Architecture"],
+    "heroImage": "https://images.unsplash.com/photo-1585136917228-f5bc9a4ced23?w=1920&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1200&q=80",
+      "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1200&q=80",
+      "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=1200&q=80",
+      "https://images.unsplash.com/photo-1560969184-10fe8719e047?w=1200&q=80"
+    ],
+    "overview": "India's Golden Triangle connects three of the subcontinent's most magnificent cities: Delhi, Agra, and Jaipur. This legendary circuit reveals the grandeur of the Mughal Empire and Rajput kingdoms — from the ethereal Taj Mahal at sunrise to the pink palaces of Jaipur. A journey through centuries of history, colour, and culture.",
+    "highlights": [
+      "Taj Mahal at sunrise — private guided tour",
+      "Agra Fort and Fatehpur Sikri exploration",
+      "Amber Fort elephant experience (Jaipur)",
+      "Old Delhi rickshaw tour & spice market",
+      "Jaipur City Palace & Hawa Mahal",
+      "Traditional Rajasthani folk dinner"
+    ],
+    "included": [
+      "Return flights from London",
+      "9 nights luxury heritage hotel accommodation",
+      "Daily breakfast",
+      "Private AC vehicle & driver throughout",
+      "Expert local guides at all sites",
+      "All entrance fees"
+    ],
+    "excluded": [
+      "Travel insurance",
+      "Visa fees",
+      "Lunches & dinners (except listed)",
+      "Tips for guides and drivers"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrival in Delhi",
+        "description": "Arrive at Indira Gandhi International Airport. Transfer to your heritage hotel in central Delhi. Evening orientation walk through Connaught Place. Welcome dinner at an award-winning restaurant.",
+        "meals": "Dinner",
+        "accommodation": "Heritage Hotel, Delhi"
+      },
+      {
+        "day": 2,
+        "title": "Old & New Delhi",
+        "description": "Morning rickshaw tour of Old Delhi — Chandni Chowk spice market, Jama Masjid mosque. Afternoon New Delhi tour: India Gate, Humayun's Tomb, Qutub Minar. Evening at leisure.",
+        "meals": "Breakfast",
+        "accommodation": "Heritage Hotel, Delhi"
+      },
+      {
+        "day": 3,
+        "title": "Drive to Agra",
+        "description": "Morning drive to Agra (3 hours). En route, visit Akbar's magnificent mausoleum at Sikandra. Arrive Agra and check-in to your hotel with Taj Mahal views. Sunset viewing of the Taj.",
+        "meals": "Breakfast",
+        "accommodation": "Taj View Hotel, Agra"
+      },
+      {
+        "day": 4,
+        "title": "The Taj at Dawn",
+        "description": "Rise before dawn for a private Taj Mahal tour as the first light catches the white marble. Your expert guide reveals the architectural secrets of this Wonder of the World. Afternoon: Agra Fort.",
+        "meals": "Breakfast",
+        "accommodation": "Taj View Hotel, Agra"
+      },
+      {
+        "day": 5,
+        "title": "Ghost City & Jaipur",
+        "description": "Morning visit to Fatehpur Sikri — the abandoned Mughal capital. Continue to the Pink City of Jaipur, arriving by evening. Check in to your palatial heritage hotel.",
+        "meals": "Breakfast",
+        "accommodation": "Heritage Palace Hotel, Jaipur"
+      },
+      {
+        "day": 6,
+        "title": "Amber Fort & Pink City",
+        "description": "Morning visit to magnificent Amber Fort — ride an elephant to the palace gates. Afternoon: City Palace museum and the iconic Hawa Mahal (Palace of Winds). Evening bazaar shopping.",
+        "meals": "Breakfast",
+        "accommodation": "Heritage Palace Hotel, Jaipur"
+      },
+      {
+        "day": 7,
+        "title": "Royal Rajasthan",
+        "description": "Explore Jantar Mantar astronomical observatory. Visit Albert Hall Museum. Afternoon block-printing workshop. Farewell dinner with traditional Rajasthani folk music and dance performance.",
+        "meals": "Breakfast & Dinner",
+        "accommodation": "Heritage Palace Hotel, Jaipur"
+      },
+      {
+        "day": 8,
+        "title": "Return to Delhi",
+        "description": "Morning flight back to Delhi. Afternoon at leisure for last-minute shopping at Janpath or Khan Market. Optional visit to Lodhi Garden for a peaceful walk through ancient tombs.",
+        "meals": "Breakfast",
+        "accommodation": "Heritage Hotel, Delhi"
+      },
+      {
+        "day": 9,
+        "title": "Departure",
+        "description": "Morning at leisure for any remaining sightseeing or shopping. Transfer to the airport for your return flight to London with extraordinary memories of India.",
+        "meals": "Breakfast",
+        "accommodation": ""
+      }
+    ],
+    "instagramVideos": [],
+    "featured": false,
+    "popular": true,
+    "rating": 4.7,
+    "reviewCount": 156
+  },
+  {
+    "id": "5",
+    "slug": "santorini-greek-islands",
+    "title": "Santorini & Greek Islands",
+    "subtitle": "Volcanic caldera views, white villages & azure seas",
+    "destination": "Greece",
+    "duration": "6 Nights / 7 Days",
+    "durationDays": 6,
+    "price": 2299,
+    "currency": "GBP",
+    "category": "Beach & Islands",
+    "tags": ["Beach", "Romance", "Honeymoon", "Mediterranean"],
+    "heroImage": "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=1920&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1200&q=80",
+      "https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=1200&q=80",
+      "https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?w=1200&q=80",
+      "https://images.unsplash.com/photo-1586375300773-8384e3e4916f?w=1200&q=80"
+    ],
+    "overview": "Santorini is the jewel of the Aegean — a crescent of volcanic cliffs draped in iconic blue-domed churches and blinding white architecture. This carefully designed journey combines the romance of Oia sunsets, the volcanic beaches of Perissa, and the vibrant culture of Fira — creating memories that last a lifetime.",
+    "highlights": [
+      "Oia sunset from the castle ruins",
+      "Caldera sailing trip with volcano swim",
+      "Private wine tasting at a cliff-top winery",
+      "Ancient Akrotiri archaeological site",
+      "Black sand beach at Perissa",
+      "Fira to Oia coastal hike"
+    ],
+    "included": [
+      "Return flights from London",
+      "6 nights caldera-view hotel",
+      "Daily breakfast",
+      "Airport-hotel transfers",
+      "Caldera sailing excursion",
+      "Wine tasting experience"
+    ],
+    "excluded": [
+      "Travel insurance",
+      "Lunches & dinners",
+      "Personal expenses",
+      "Optional activities"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrival in Santorini",
+        "description": "Fly into Santorini airport and transfer to your caldera-view hotel in Imerovigli. Settle into your cave suite with its extraordinary views. Enjoy a welcome dinner watching the famous Santorini sunset.",
+        "meals": "Dinner",
+        "accommodation": "Caldera Cave Hotel, Imerovigli"
+      },
+      {
+        "day": 2,
+        "title": "Oia & The Famous Sunset",
+        "description": "Spend the day exploring the picturesque village of Oia. Browse galleries, enjoy Greek coffee, and discover hidden alleys. Position yourself at the Oia castle for the most photographed sunset in the world.",
+        "meals": "Breakfast",
+        "accommodation": "Caldera Cave Hotel, Imerovigli"
+      },
+      {
+        "day": 3,
+        "title": "Sailing the Caldera",
+        "description": "All-day sailing excursion around the caldera. Swim in the warm waters of the hot springs, climb the volcanic island, and snorkel at pristine Red Beach. Sunset cocktails on deck.",
+        "meals": "Breakfast & Lunch",
+        "accommodation": "Caldera Cave Hotel, Imerovigli"
+      },
+      {
+        "day": 4,
+        "title": "Volcanic Beaches & Akrotiri",
+        "description": "Morning at the iconic black sand beach of Perissa. Afternoon visit to Akrotiri — Santorini's Minoan Bronze Age city preserved under volcanic ash. Private winery visit at sunset.",
+        "meals": "Breakfast",
+        "accommodation": "Caldera Cave Hotel, Imerovigli"
+      },
+      {
+        "day": 5,
+        "title": "Fira to Oia Hike",
+        "description": "Take the classic coastal walk from Fira to Oia (10km, 4 hours) following clifftops with breathtaking caldera views. Reward yourself with a long lunch in Oia and an afternoon dip at Amoudi Bay.",
+        "meals": "Breakfast",
+        "accommodation": "Caldera Cave Hotel, Imerovigli"
+      },
+      {
+        "day": 6,
+        "title": "Leisurely Last Day",
+        "description": "A morning of indulgent leisure — perhaps a spa treatment or final swim in your infinity pool overlooking the caldera. Afternoon souvenir shopping in Fira. Farewell dinner at a renowned cliffside restaurant.",
+        "meals": "Breakfast & Dinner",
+        "accommodation": "Caldera Cave Hotel, Imerovigli"
+      }
+    ],
+    "instagramVideos": [],
+    "featured": false,
+    "popular": true,
+    "rating": 4.8,
+    "reviewCount": 71
+  },
+  {
+    "id": "6",
+    "slug": "morocco-imperial-cities",
+    "title": "Morocco Imperial Cities",
+    "subtitle": "Ancient medinas, Sahara sands & Berber hospitality",
+    "destination": "Morocco",
+    "duration": "7 Nights / 8 Days",
+    "durationDays": 7,
+    "price": 1649,
+    "currency": "GBP",
+    "category": "Culture & Heritage",
+    "tags": ["Culture", "Desert", "History", "Adventure"],
+    "heroImage": "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=1920&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1597212618440-806262de4f6b?w=1200&q=80",
+      "https://images.unsplash.com/photo-1548812126-52a98dfc0f6c?w=1200&q=80",
+      "https://images.unsplash.com/photo-1569383746724-6f1b882b8f46?w=1200&q=80",
+      "https://images.unsplash.com/photo-1553913861-c0fddf2619ee?w=1200&q=80"
+    ],
+    "overview": "Morocco is a feast for the senses — labyrinthine medinas alive with artisans, the Atlas Mountains rising from the arid plains, and the Sahara Desert stretching to the horizon. This grand tour of Morocco's imperial cities reveals the country's extraordinary depth of history, artistry, and culture.",
+    "highlights": [
+      "Camel trek & desert camp in the Sahara",
+      "Fes medina — world's largest car-free urban area",
+      "Marrakech Djemaa el-Fna square at night",
+      "Majorelle Garden & Yves Saint Laurent Museum",
+      "Ait Benhaddou Kasbah (UNESCO site)",
+      "Hammam & traditional Moroccan spa ritual"
+    ],
+    "included": [
+      "Return flights from London",
+      "7 nights riad & desert camp accommodation",
+      "Daily breakfast",
+      "Private driver & guide throughout",
+      "All listed experiences",
+      "Airport transfers"
+    ],
+    "excluded": [
+      "Travel insurance",
+      "Lunches & dinners",
+      "Tips for local guides",
+      "Personal shopping"
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrival in Marrakech",
+        "description": "Arrive at Marrakech Menara Airport and transfer to your riad in the historic medina. Freshen up and explore the legendary Djemaa el-Fna square as it comes alive with storytellers, musicians, and food stalls.",
+        "meals": "Dinner",
+        "accommodation": "Luxury Riad, Marrakech Medina"
+      },
+      {
+        "day": 2,
+        "title": "Marrakech Medina",
+        "description": "Morning tour of the medina's souks — spices, leather, textiles. Visit the breathtaking Bahia Palace and Ben Youssef Madrasa. Afternoon at Majorelle Garden. Traditional hammam experience.",
+        "meals": "Breakfast",
+        "accommodation": "Luxury Riad, Marrakech Medina"
+      },
+      {
+        "day": 3,
+        "title": "Atlas Mountains",
+        "description": "Day trip through the Tizi n'Tichka mountain pass to the UNESCO-listed Ait Benhaddou Kasbah — used in Game of Thrones and Gladiator. Lunch in a Berber village. Return to Marrakech.",
+        "meals": "Breakfast & Lunch",
+        "accommodation": "Luxury Riad, Marrakech Medina"
+      },
+      {
+        "day": 4,
+        "title": "Journey to the Sahara",
+        "description": "Drive through the Draa Valley, passing kasbahs and date palms. Arrive at Merzouga on the edge of the Sahara. Mount your camel for a trek into the Erg Chebbi dunes to your desert camp for sunset.",
+        "meals": "Breakfast & Dinner",
+        "accommodation": "Luxury Desert Camp, Merzouga"
+      },
+      {
+        "day": 5,
+        "title": "Sahara Sunrise & Fes",
+        "description": "Rise before dawn to watch the sun paint the dunes gold. Morning exploring Merzouga. Long scenic drive to Fes through the Middle Atlas mountains and cedar forests.",
+        "meals": "Breakfast",
+        "accommodation": "Heritage Riad, Fes Medina"
+      },
+      {
+        "day": 6,
+        "title": "Ancient Fes",
+        "description": "Full day exploring the medieval Fes el-Bali — the world's largest car-free urban area. Visit the Chouara tannery, Al-Qarawiyyin University (oldest in the world), and the bustling souks.",
+        "meals": "Breakfast",
+        "accommodation": "Heritage Riad, Fes Medina"
+      },
+      {
+        "day": 7,
+        "title": "Chefchaouen",
+        "description": "Day trip to the legendary 'Blue City' of Chefchaouen — every building painted in shades of blue and white. Wander the photogenic streets and enjoy lunch with the Atlas Mountains as backdrop.",
+        "meals": "Breakfast & Lunch",
+        "accommodation": "Heritage Riad, Fes Medina"
+      }
+    ],
+    "instagramVideos": [],
+    "featured": false,
+    "popular": false,
+    "rating": 4.7,
+    "reviewCount": 48
+  }
+]
