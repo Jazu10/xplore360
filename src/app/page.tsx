@@ -6,34 +6,15 @@ import Testimonials from '@/components/home/Testimonials'
 import CallToAction from '@/components/home/CallToAction'
 import InstagramFeed from '@/components/home/InstagramFeed'
 import StickyBooking from '@/components/ui/StickyBooking'
-import { Package, Testimonial } from '@/types'
+import { getPackagesData, getTestimonialsData } from '@/lib/data'
 
-async function getPackages(): Promise<Package[]> {
-  try {
-    const base = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
-    const res = await fetch(`${base}/api/packages?featured=true`, { next: { revalidate: 60 } })
-    if (!res.ok) throw new Error('Failed')
-    return res.json()
-  } catch {
-    const data = await import('@/data/packages.json')
-    return (data.default as Package[]).filter((p) => p.featured)
-  }
-}
-
-async function getTestimonials(): Promise<Testimonial[]> {
-  try {
-    const base = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
-    const res = await fetch(`${base}/api/testimonials`, { next: { revalidate: 60 } })
-    if (!res.ok) throw new Error('Failed')
-    return res.json()
-  } catch {
-    const data = await import('@/data/testimonials.json')
-    return data.default as Testimonial[]
-  }
-}
+export const revalidate = 60
 
 export default async function HomePage() {
-  const [packages, testimonials] = await Promise.all([getPackages(), getTestimonials()])
+  const [packages, testimonials] = await Promise.all([
+    getPackagesData(true),
+    getTestimonialsData(),
+  ])
 
   return (
     <div className="page-wrapper">
