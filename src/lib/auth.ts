@@ -38,14 +38,27 @@ export async function verifyAdminCredentials(username: string, password: string)
     try {
       await connectDB()
       const AdminModel = (await import('@/models/Admin')).default
+
+      // Auto-seed first admin from env vars if collection is empty
+      const count = await AdminModel.countDocuments()
+      if (count === 0) {
+        const envUser = (process.env.ADMIN_USERNAME || 'admin').toLowerCase()
+        const envPass = process.env.ADMIN_PASSWORD || 'changeme'
+        await AdminModel.create({
+          username: envUser,
+          passwordHash: await bcrypt.hash(envPass, 12),
+          role: 'superadmin',
+        })
+      }
+
       const admin = await AdminModel.findOne({ username: username.toLowerCase() })
       if (admin) return bcrypt.compare(password, admin.passwordHash)
     } catch {
-      // fall through to env fallback
+      // fall through to env var fallback
     }
   }
 
-  // Fallback: env vars (works without DB)
+  // Fallback: env vars (no DB required)
   return (
     username === process.env.ADMIN_USERNAME &&
     password === process.env.ADMIN_PASSWORD
