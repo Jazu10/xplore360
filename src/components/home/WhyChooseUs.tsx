@@ -2,39 +2,39 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Shield, Headphones, MapPin, Star, Clock, Heart } from 'lucide-react'
+import { Users, Compass, Sparkles, Map, Heart, Star } from 'lucide-react'
 import { SITE_NAME } from '@/lib/site-config'
 
 const reasons = [
   {
-    icon: Shield,
-    title: 'ATOL Protected',
-    description: 'Your holiday is fully protected. We are ATOL certified, giving you complete peace of mind when booking with us.',
+    icon: Users,
+    title: 'Travel With Strangers',
+    description: 'Our unique concept puts you in carefully curated groups of like-minded explorers. Leave alone, come back with friends.',
   },
   {
-    icon: Headphones,
-    title: '24/7 UK Support',
-    description: 'Our dedicated team is available around the clock throughout your journey — a real person, not a chatbot.',
+    icon: Compass,
+    title: 'Hassle-Free Planning',
+    description: 'We handle everything — flights, hotels, activities, and transfers. You just show up and enjoy.',
   },
   {
-    icon: MapPin,
-    title: 'Expert Local Knowledge',
-    description: 'Our destination specialists have personally visited every location we sell. Insider access guaranteed.',
-  },
-  {
-    icon: Star,
-    title: 'Handpicked Properties',
-    description: 'Every hotel, villa, and resort is personally inspected and selected for quality, location, and character.',
-  },
-  {
-    icon: Clock,
-    title: 'Seamless Planning',
-    description: 'From visa assistance to private transfers — we handle every detail so you can focus entirely on enjoying.',
+    icon: Sparkles,
+    title: 'Story-Driven Experiences',
+    description: 'We don\'t just plan trips. We create moments that stay with you long after you\'ve returned home.',
   },
   {
     icon: Heart,
-    title: 'Tailored to You',
-    description: 'No two holidays are the same. Every itinerary is crafted around your preferences, pace, and passions.',
+    title: 'Built on Community',
+    description: 'Strong focus on connection and belonging. Every trip is designed to spark real friendships along the way.',
+  },
+  {
+    icon: Map,
+    title: 'Curated Social Groups',
+    description: 'We match travellers by vibe and interests — solo travellers, young professionals, and curious explorers.',
+  },
+  {
+    icon: Star,
+    title: 'Memorable by Design',
+    description: 'Every destination and itinerary is chosen to be genuinely exciting, not just ticked off a bucket list.',
   },
 ]
 
@@ -61,7 +61,7 @@ export default function WhyChooseUs() {
             The {SITE_NAME} <span className="italic text-gold">Difference</span>
           </h2>
           <p className="text-obsidian/50 text-lg font-light mt-5 max-w-xl mx-auto">
-            We don&apos;t just book holidays — we craft experiences that become lifelong memories.
+            We don&apos;t just plan trips — we create moments that stay with you.
           </p>
         </motion.div>
 

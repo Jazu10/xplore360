@@ -6,7 +6,7 @@ import { MapPin, Clock, Users, Calendar, CheckCircle, XCircle, ChevronDown, Phon
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import { useState } from 'react'
 import { buildWhatsAppUrl } from '@/lib/utils'
-import { siteConfig } from '@/lib/site-config'
+import { useSettings } from '@/hooks/useSettings'
 
 interface ItineraryDay { day: number; title: string; description: string; meals?: string; accommodation?: string }
 
@@ -20,6 +20,7 @@ interface Camp {
 }
 
 export default function CampDetailClient({ camp }: { camp: Camp }) {
+  const { whatsapp, phone } = useSettings()
   const [openDay, setOpenDay] = useState<number | null>(0)
   const whatsappMsg = `Hi, I'm interested in the "${camp.title}" camp. Could you provide more details?`
 
@@ -151,11 +152,11 @@ export default function CampDetailClient({ camp }: { camp: Camp }) {
               </div>
 
               <div className="space-y-3 pt-2">
-                <a href={buildWhatsAppUrl(siteConfig.whatsapp, whatsappMsg)} target="_blank" rel="noopener noreferrer"
+                <a href={buildWhatsAppUrl(whatsapp, whatsappMsg)} target="_blank" rel="noopener noreferrer"
                   className="w-full flex items-center justify-center gap-2 bg-[#25D366] text-white py-4 text-sm font-medium tracking-wide hover:bg-[#1fb855] transition-colors">
                   <MessageCircle size={16} /> Book via WhatsApp
                 </a>
-                <a href={`tel:${siteConfig.phone}`}
+                <a href={`tel:${phone}`}
                   className="w-full flex items-center justify-center gap-2 border border-obsidian/20 text-obsidian py-4 text-sm font-medium tracking-wide hover:border-gold hover:text-gold transition-colors">
                   <Phone size={16} /> Call to Enquire
                 </a>

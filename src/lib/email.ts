@@ -22,16 +22,16 @@ export interface ContactEmailData {
   message: string
 }
 
-export async function sendContactEmail(data: ContactEmailData): Promise<void> {
-  const businessEmail = process.env.BUSINESS_EMAIL || process.env.EMAIL_USER
-  if (!businessEmail) throw new Error('BUSINESS_EMAIL not configured')
+export async function sendContactEmail(data: ContactEmailData, businessEmail?: string): Promise<void> {
+  const toEmail = businessEmail || process.env.EMAIL_USER
+  if (!toEmail) throw new Error('No recipient email configured')
 
   const transporter = getTransporter()
 
   // Email to business
   await transporter.sendMail({
     from: `"${SITE_NAME} Website" <${process.env.EMAIL_USER}>`,
-    to: businessEmail,
+    to: toEmail,
     replyTo: data.email,
     subject: data.packageName
       ? `New Enquiry: ${data.packageName} — ${data.name}`
@@ -86,7 +86,7 @@ export async function sendContactEmail(data: ContactEmailData): Promise<void> {
           <p style="line-height: 1.8; color: #444;">In the meantime, feel free to browse our other packages at our website, or reach us directly via WhatsApp for the fastest response.</p>
           <div style="margin: 32px 0; padding: 24px; background: #F5F0E8; border-left: 3px solid #C9A96E;">
             <p style="margin: 0; font-size: 13px; color: #666;">Need an immediate response?</p>
-            <p style="margin: 8px 0 0; font-weight: 600; color: #0A0A0A;">${process.env.BUSINESS_EMAIL || ''}</p>
+            <p style="margin: 8px 0 0; font-weight: 600; color: #0A0A0A;">${toEmail}</p>
           </div>
         </div>
         <div style="padding: 20px 32px; text-align: center; background: #F5F0E8;">

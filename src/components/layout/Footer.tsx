@@ -1,42 +1,14 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, Mail, MapPin, Instagram, Facebook, MessageCircle } from 'lucide-react'
 import { buildWhatsAppUrl } from '@/lib/utils'
-import { siteConfig } from '@/lib/site-config'
-
-interface SiteSettings {
-  siteName: string
-  logoUrl?: string
-  whatsapp: string
-  phone: string
-  email: string
-  address: string
-  socialMedia: { instagram: string; facebook: string }
-}
-
-const DEFAULT: SiteSettings = {
-  siteName: siteConfig.siteName,
-  logoUrl: siteConfig.logoUrl,
-  whatsapp: siteConfig.whatsapp,
-  phone: siteConfig.phone,
-  email: siteConfig.email,
-  address: siteConfig.address,
-  socialMedia: siteConfig.socialMedia,
-}
+import { useSettings } from '@/hooks/useSettings'
 
 export default function Footer() {
   const year = new Date().getFullYear()
-  const [cfg, setCfg] = useState<SiteSettings>(DEFAULT)
-
-  useEffect(() => {
-    fetch('/api/settings')
-      .then((r) => r.json())
-      .then((d) => { if (d && !d.error) setCfg(d) })
-      .catch(() => {})
-  }, [])
+  const cfg = useSettings()
 
   return (
     <footer className="bg-obsidian text-white">

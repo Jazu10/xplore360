@@ -150,10 +150,10 @@ export default function AdminSettingsPage() {
         <section className="bg-beige border border-gold/20 p-6">
           <h3 className="font-serif text-lg text-obsidian mb-3">Email Configuration</h3>
           <p className="text-obsidian/60 text-sm leading-relaxed mb-4">
-            Email sending is configured via <code className="bg-white px-1.5 py-0.5 text-xs border border-obsidian/10">.env.local</code> — not stored in the database for security.
+            Email sending is configured via <code className="bg-white px-1.5 py-0.5 text-xs border border-obsidian/10">.env.local</code> — not stored in the database for security. Enquiries are delivered to the <strong>Email Address</strong> set above.
           </p>
           <div className="grid grid-cols-2 gap-2 text-xs text-obsidian/50 font-mono">
-            {['EMAIL_HOST', 'EMAIL_PORT', 'EMAIL_USER', 'EMAIL_PASS', 'BUSINESS_EMAIL'].map((key) => (
+            {['EMAIL_HOST', 'EMAIL_PORT', 'EMAIL_USER', 'EMAIL_PASS'].map((key) => (
               <div key={key} className="bg-white px-3 py-2 border border-obsidian/10">{key}</div>
             ))}
           </div>

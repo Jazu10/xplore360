@@ -6,11 +6,12 @@ import Image from 'next/image'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { MessageCircle, ChevronDown } from 'lucide-react'
 import { buildWhatsAppUrl } from '@/lib/utils'
-import siteConfig from '@/data/config.json'
+import { useSettings } from '@/hooks/useSettings'
 
 const HERO_IMAGE = 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=2400&q=90'
 
 export default function Hero() {
+  const { whatsapp } = useSettings()
   const containerRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -22,7 +23,7 @@ export default function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0])
 
   const whatsappUrl = buildWhatsAppUrl(
-    siteConfig.whatsapp,
+    whatsapp,
     "Hello! I'm interested in exploring your luxury travel packages."
   )
 
