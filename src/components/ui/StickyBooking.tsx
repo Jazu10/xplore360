@@ -4,13 +4,14 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MessageCircle, Phone, X } from 'lucide-react'
 import { buildWhatsAppUrl } from '@/lib/utils'
-import siteConfig from '@/data/config.json'
+import { useSettings } from '@/hooks/useSettings'
 
 interface StickyBookingProps {
   packageName?: string
 }
 
 export default function StickyBooking({ packageName }: StickyBookingProps) {
+  const { whatsapp, phone } = useSettings()
   const [visible, setVisible] = useState(false)
   const [expanded, setExpanded] = useState(false)
 
@@ -38,7 +39,7 @@ export default function StickyBooking({ packageName }: StickyBookingProps) {
           >
             <div className="flex">
               <a
-                href={buildWhatsAppUrl(siteConfig.whatsapp, whatsappMsg)}
+                href={buildWhatsAppUrl(whatsapp, whatsappMsg)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 flex items-center justify-center gap-2 py-4 bg-[#25D366] text-white text-sm font-medium"
@@ -47,7 +48,7 @@ export default function StickyBooking({ packageName }: StickyBookingProps) {
                 WhatsApp
               </a>
               <a
-                href={`tel:${siteConfig.phone}`}
+                href={`tel:${phone}`}
                 className="flex-1 flex items-center justify-center gap-2 py-4 bg-obsidian text-white text-sm font-medium"
               >
                 <Phone size={18} />
@@ -77,7 +78,7 @@ export default function StickyBooking({ packageName }: StickyBookingProps) {
                   className="flex flex-col gap-2 items-end"
                 >
                   <a
-                    href={buildWhatsAppUrl(siteConfig.whatsapp, whatsappMsg)}
+                    href={buildWhatsAppUrl(whatsapp, whatsappMsg)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 bg-[#25D366] text-white px-5 py-3 rounded-full text-sm font-medium shadow-xl shadow-[#25D366]/30 hover:bg-[#1ebe57] transition-colors"
@@ -86,11 +87,11 @@ export default function StickyBooking({ packageName }: StickyBookingProps) {
                     WhatsApp Us
                   </a>
                   <a
-                    href={`tel:${siteConfig.phone}`}
+                    href={`tel:${phone}`}
                     className="flex items-center gap-3 bg-obsidian text-white px-5 py-3 rounded-full text-sm font-medium shadow-xl hover:bg-obsidian-light transition-colors"
                   >
                     <Phone size={16} />
-                    {siteConfig.phone}
+                    {phone}
                   </a>
                 </motion.div>
               )}

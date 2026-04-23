@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { sendContactEmail, isEmailConfigured } from '@/lib/email'
 import { connectDB, isDBConfigured } from '@/lib/db'
 import InquiryModel from '@/models/Inquiry'
+import { siteConfig } from '@/lib/site-config'
 
 export async function POST(req: NextRequest) {
   try {
@@ -21,6 +22,17 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Invalid email address' }, { status: 400 })
     }
 
+    // Resolve business email from settings, then config.json fallback
+    let businessEmail = siteConfig.email
+    if (isDBConfigured()) {
+      try {
+        await connectDB()
+        const SettingsModel = (await import('@/models/Settings')).default
+        const settings = await SettingsModel.findOne().lean() as { email?: string } | null
+        if (settings?.email) businessEmail = settings.email
+      } catch {}
+    }
+
     // Save to DB if configured
     if (isDBConfigured()) {
       try {
@@ -34,7 +46,7 @@ export async function POST(req: NextRequest) {
 
     // Send email
     if (isEmailConfigured()) {
-      await sendContactEmail({ name, email, phone, destination, packageName, message })
+      await sendContactEmail({ name, email, phone, destination, packageName, message }, businessEmail)
     } else {
       console.warn('Email not configured — enquiry saved to DB only')
     }
