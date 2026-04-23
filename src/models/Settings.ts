@@ -1,4 +1,5 @@
 import mongoose, { Schema, Document, Model } from 'mongoose'
+import { SITE_NAME, SITE_TAGLINE } from '@/lib/site-config'
 
 export interface ISettings extends Document {
   siteName: string
@@ -17,8 +18,8 @@ export interface ISettings extends Document {
 
 const SettingsSchema = new Schema<ISettings>(
   {
-    siteName: { type: String, default: 'Xplore360' },
-    tagline: { type: String, default: 'Curated Journeys, Extraordinary Experiences' },
+    siteName: { type: String, default: SITE_NAME },
+    tagline: { type: String, default: SITE_TAGLINE },
     logoUrl: { type: String, default: '' },
     whatsapp: { type: String, default: '' },
     phone: { type: String, default: '' },

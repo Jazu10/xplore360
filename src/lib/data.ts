@@ -2,6 +2,7 @@ import { Package, Testimonial } from '@/types'
 import { isDBConfigured, connectDB } from '@/lib/db'
 import packagesJson from '@/data/packages.json'
 import testimonialsJson from '@/data/testimonials.json'
+import campsJson from '@/data/camps.json'
 
 export async function getPackagesData(featuredOnly = false): Promise<Package[]> {
   if (isDBConfigured()) {
@@ -27,6 +28,20 @@ export async function getPackageBySlug(slug: string): Promise<Package | null> {
     } catch {}
   }
   return (packagesJson as unknown as Package[]).find((p) => p.slug === slug) ?? null
+}
+
+export async function getCampsData(featuredOnly = false): Promise<unknown[]> {
+  if (isDBConfigured()) {
+    try {
+      await connectDB()
+      const CampModel = (await import('@/models/Camp')).default
+      const query = featuredOnly ? { featured: true, published: true } : { published: true }
+      const docs = await CampModel.find(query).lean()
+      return docs as unknown[]
+    } catch {}
+  }
+  const all = campsJson as unknown[]
+  return featuredOnly ? (all as { featured?: boolean }[]).filter((c) => c.featured) : all
 }
 
 export async function getTestimonialsData(): Promise<Testimonial[]> {

@@ -1,30 +1,19 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Phone, Mail, MessageCircle, MapPin, CheckCircle, Loader2, AlertCircle } from 'lucide-react'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import { buildWhatsAppUrl, buildEmailUrl } from '@/lib/utils'
-import { siteConfig } from '@/lib/site-config'
-
-interface SiteSettings {
-  siteName?: string; whatsapp: string; phone: string; email: string; address: string
-}
+import { SITE_NAME } from '@/lib/site-config'
+import { useSettings } from '@/hooks/useSettings'
 
 export default function ContactClient() {
-  const [cfg, setCfg] = useState<SiteSettings>({
-    whatsapp: siteConfig.whatsapp, phone: siteConfig.phone,
-    email: siteConfig.email, address: siteConfig.address,
-  })
+  const cfg = useSettings()
   const [form, setForm] = useState({ name: '', email: '', phone: '', destination: '', message: '', consent: false })
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
-
-  useEffect(() => {
-    fetch('/api/settings').then((r) => r.json())
-      .then((d) => { if (d && !d.error) setCfg(d) }).catch(() => {})
-  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -52,7 +41,7 @@ export default function ContactClient() {
       <section className="relative h-80 overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=80"
-          alt="Contact Xplore360"
+          alt={`Contact ${cfg.siteName || SITE_NAME}`}
           fill priority className="object-cover" sizes="100vw"
         />
         <div className="absolute inset-0 bg-obsidian/65" />
@@ -193,7 +182,7 @@ export default function ContactClient() {
                     onChange={(e) => setForm({ ...form, consent: e.target.checked })}
                     className="mt-1 accent-gold" />
                   <label htmlFor="consent" className="text-sm text-obsidian/50 leading-relaxed">
-                    I consent to Xplore360 processing my data to respond to my enquiry, in accordance with UK GDPR and the{' '}
+                    I consent to {cfg.siteName || SITE_NAME} processing my data to respond to my enquiry, in accordance with UK GDPR and the{' '}
                     <a href="/privacy" className="text-gold underline underline-offset-2">Privacy Policy</a>. *
                   </label>
                 </div>

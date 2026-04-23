@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { MessageCircle, Phone, Mail } from 'lucide-react'
 import { buildWhatsAppUrl, buildEmailUrl } from '@/lib/utils'
-import siteConfig from '@/data/config.json'
+import { useSettings } from '@/hooks/useSettings'
 
 interface BookingCTAsProps {
   packageName?: string
@@ -16,6 +16,7 @@ export default function BookingCTAs({
   layout = 'horizontal',
   size = 'md',
 }: BookingCTAsProps) {
+  const { whatsapp, phone, email } = useSettings()
   const whatsappMsg = packageName
     ? `Hello! I'd like to enquire about the *${packageName}* package. Could you please provide more details?`
     : `Hello! I'd like to enquire about your travel packages. Could you please help me?`
@@ -39,7 +40,7 @@ export default function BookingCTAs({
       <motion.a
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
-        href={buildWhatsAppUrl(siteConfig.whatsapp, whatsappMsg)}
+        href={buildWhatsAppUrl(whatsapp, whatsappMsg)}
         target="_blank"
         rel="noopener noreferrer"
         className={`inline-flex items-center justify-center ${btnSize} bg-[#25D366] text-white font-medium rounded-sm tracking-wide transition-all duration-300 hover:bg-[#1ebe57] shadow-lg shadow-[#25D366]/20`}
@@ -51,7 +52,7 @@ export default function BookingCTAs({
       <motion.a
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
-        href={`tel:${siteConfig.phone}`}
+        href={`tel:${phone}`}
         className={`inline-flex items-center justify-center ${btnSize} bg-obsidian text-white font-medium rounded-sm tracking-wide transition-all duration-300 hover:bg-obsidian-light border border-white/10`}
       >
         <Phone size={size === 'lg' ? 20 : 16} />
@@ -61,7 +62,7 @@ export default function BookingCTAs({
       <motion.a
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
-        href={buildEmailUrl(siteConfig.email, emailSubject, emailBody)}
+        href={buildEmailUrl(email, emailSubject, emailBody)}
         className={`inline-flex items-center justify-center ${btnSize} border border-gold text-gold font-medium rounded-sm tracking-wide transition-all duration-300 hover:bg-gold hover:text-white`}
       >
         <Mail size={size === 'lg' ? 20 : 16} />

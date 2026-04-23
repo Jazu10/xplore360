@@ -5,6 +5,7 @@ import NextImage from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Plus, Trash2, Loader2, Film, Image as ImageIcon, Link as LinkIcon, X, Upload } from 'lucide-react'
 import toast from 'react-hot-toast'
+import { SITE_SLUG } from '@/lib/site-config'
 
 interface MediaItem {
   _id: string; type: string; url: string; thumbnailUrl: string
@@ -37,7 +38,7 @@ export default function AdminMediaPage() {
 
   const handleFileUpload = async (file: File, field: 'url' | 'thumbnailUrl') => {
     setUploading(true)
-    const fd = new FormData(); fd.append('file', file); fd.append('folder', 'xplore360/media')
+    const fd = new FormData(); fd.append('file', file); fd.append('folder', `${SITE_SLUG}/media`)
     try {
       const res = await fetch('/api/upload', { method: 'POST', body: fd })
       const data = await res.json()

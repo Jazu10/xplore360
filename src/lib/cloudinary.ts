@@ -1,4 +1,5 @@
 import { v2 as cloudinary } from 'cloudinary'
+import { SITE_SLUG } from '@/lib/site-config'
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -8,7 +9,7 @@ cloudinary.config({
 
 export async function uploadImage(
   file: Buffer | string,
-  folder: string = 'xplore360'
+  folder: string = SITE_SLUG
 ): Promise<{ url: string; publicId: string }> {
   return new Promise((resolve, reject) => {
     const uploadOptions = {

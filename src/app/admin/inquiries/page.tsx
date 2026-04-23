@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { Mail, Trash2, Loader2, Phone, Package, MessageSquare, CheckCircle, Clock } from 'lucide-react'
 import { buildWhatsAppUrl, buildEmailUrl } from '@/lib/utils'
 import toast from 'react-hot-toast'
+import { siteConfig } from '@/lib/site-config'
 
 interface Inquiry {
   _id: string; name: string; email: string; phone?: string
@@ -23,13 +24,18 @@ export default function AdminInquiriesPage() {
   const [loading, setLoading] = useState(true)
   const [filter, setFilter] = useState<string>('all')
   const [selected, setSelected] = useState<Inquiry | null>(null)
+  const [whatsapp, setWhatsapp] = useState(siteConfig.whatsapp)
 
   const load = () => {
     fetch('/api/inquiries').then((r) => r.json())
       .then((d) => { if (Array.isArray(d)) setItems(d) })
       .catch(() => {}).finally(() => setLoading(false))
   }
-  useEffect(() => { load() }, [])
+  useEffect(() => {
+    load()
+    fetch('/api/settings').then((r) => r.json())
+      .then((d) => { if (d?.whatsapp) setWhatsapp(d.whatsapp) }).catch(() => {})
+  }, [])
 
   const markStatus = async (id: string, status: string) => {
     try {
@@ -144,7 +150,7 @@ export default function AdminInquiriesPage() {
                   <Mail size={13} /> Reply by Email
                 </a>
                 {selected.phone && (
-                  <a href={buildWhatsAppUrl('447700000000', `Hello ${selected.name}! Thank you for your enquiry about ${selected.packageName || 'our packages'}.`)}
+                  <a href={buildWhatsAppUrl(whatsapp, `Hello ${selected.name}! Thank you for your enquiry about ${selected.packageName || 'our packages'}.`)}
                     target="_blank" rel="noopener noreferrer"
                     className="w-full flex items-center justify-center gap-2 bg-[#25D366] text-white py-2.5 text-xs tracking-wide uppercase hover:bg-[#1ebe57] transition-colors">
                     <MessageSquare size={13} /> WhatsApp

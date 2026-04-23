@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Plus, Trash2, ChevronDown, Loader2, Save, ArrowLeft } from 'lucide-react'
 import ImageUpload from '@/components/admin/ImageUpload'
 import toast from 'react-hot-toast'
+import { SITE_SLUG } from '@/lib/site-config'
 
 interface ItineraryDay { day: number; title: string; description: string; meals: string; accommodation: string }
 
@@ -202,7 +203,7 @@ export default function CampForm({ initial, isEdit = false }: CampFormProps) {
       {/* Images */}
       <section className="bg-white border border-obsidian/8 p-8 space-y-6">
         <h2 className="font-serif text-xl text-obsidian border-b border-obsidian/8 pb-4">Images</h2>
-        <ImageUpload label="Hero Image *" value={form.heroImage} onChange={(url) => set('heroImage', url)} folder="xplore360/camps" />
+        <ImageUpload label="Hero Image *" value={form.heroImage} onChange={(url) => set('heroImage', url)} folder={`${SITE_SLUG}/camps`} />
         <div>
           <div className="flex items-center justify-between mb-3">
             <label className="text-xs tracking-[0.2em] uppercase text-obsidian/50">Gallery Images</label>
@@ -218,7 +219,7 @@ export default function CampForm({ initial, isEdit = false }: CampFormProps) {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {form.gallery.map((url, i) => (
                 <div key={i} className="relative">
-                  <ImageUpload value={url} onChange={(val) => updateGallery(i, val)} folder="xplore360/camps" />
+                  <ImageUpload value={url} onChange={(val) => updateGallery(i, val)} folder={`${SITE_SLUG}/camps`} />
                   <button type="button" onClick={() => removeGallery(i)}
                     className="absolute -top-2 -right-2 z-10 w-6 h-6 bg-red-500 text-white flex items-center justify-center rounded-full hover:bg-red-600 transition-colors">
                     <Trash2 size={11} />
