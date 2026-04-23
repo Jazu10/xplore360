@@ -44,8 +44,9 @@ export default function AdminSettingsPage() {
         credentials: 'include',
         body: JSON.stringify(form),
       })
-      const data = await res.json()
-      if (!res.ok) throw new Error(data.error || 'Failed')
+      const text = await res.text()
+      const data = text ? JSON.parse(text) : {}
+      if (!res.ok) throw new Error(data.error || `Server error (${res.status})`)
       setSaved(true)
       toast.success('Settings saved!')
       setTimeout(() => setSaved(false), 3000)
