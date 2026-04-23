@@ -24,14 +24,22 @@ export default function AdminsPage() {
   const [changingPw, setChangingPw] = useState<string | null>(null)
   const [newPw, setNewPw] = useState('')
   const [dbError, setDbError] = useState(false)
+  const [myRole, setMyRole] = useState<'admin' | 'superadmin'>('admin')
+
+  const isSuperAdmin = myRole === 'superadmin'
 
   const load = async () => {
     setLoading(true)
     try {
-      const res = await fetch('/api/admin/admins')
-      if (res.status === 503) { setDbError(true); return }
-      const data = await res.json()
+      const [adminsRes, meRes] = await Promise.all([
+        fetch('/api/admin/admins'),
+        fetch('/api/auth/me'),
+      ])
+      if (adminsRes.status === 503) { setDbError(true); return }
+      const data = await adminsRes.json()
       setAdmins(Array.isArray(data) ? data : [])
+      const me = await meRes.json()
+      if (me?.role) setMyRole(me.role)
     } catch {
       toast.error('Failed to load admins')
     } finally {
@@ -165,7 +173,7 @@ export default function AdminsPage() {
                   className="w-full border border-obsidian/15 py-2.5 px-3 text-sm focus:outline-none focus:border-gold bg-white"
                 >
                   <option value="admin">Admin</option>
-                  <option value="superadmin">Super Admin</option>
+                  {isSuperAdmin && <option value="superadmin">Super Admin</option>}
                 </select>
               </div>
             </div>
@@ -212,18 +220,25 @@ export default function AdminsPage() {
                 </div>
 
                 <div className="flex items-center gap-2 shrink-0">
-                  <button
-                    onClick={() => { setChangingPw(changingPw === admin._id ? null : admin._id); setNewPw('') }}
-                    className="flex items-center gap-1.5 text-xs px-3 py-2 border border-obsidian/15 text-obsidian/50 hover:text-obsidian hover:border-obsidian/30 transition-colors"
-                  >
-                    <KeyRound size={12} /> Password
-                  </button>
-                  <button
-                    onClick={() => handleDelete(admin)}
-                    className="flex items-center gap-1.5 text-xs px-3 py-2 border border-red-200 text-red-400 hover:bg-red-50 transition-colors"
-                  >
-                    <Trash2 size={12} /> Delete
-                  </button>
+                  {(isSuperAdmin || admin.role !== 'superadmin') && (
+                    <button
+                      onClick={() => { setChangingPw(changingPw === admin._id ? null : admin._id); setNewPw('') }}
+                      className="flex items-center gap-1.5 text-xs px-3 py-2 border border-obsidian/15 text-obsidian/50 hover:text-obsidian hover:border-obsidian/30 transition-colors"
+                    >
+                      <KeyRound size={12} /> Password
+                    </button>
+                  )}
+                  {(isSuperAdmin || admin.role !== 'superadmin') && (
+                    <button
+                      onClick={() => handleDelete(admin)}
+                      className="flex items-center gap-1.5 text-xs px-3 py-2 border border-red-200 text-red-400 hover:bg-red-50 transition-colors"
+                    >
+                      <Trash2 size={12} /> Delete
+                    </button>
+                  )}
+                  {!isSuperAdmin && admin.role === 'superadmin' && (
+                    <span className="text-xs text-obsidian/30 px-3 py-2">Protected</span>
+                  )}
                 </div>
               </div>
 

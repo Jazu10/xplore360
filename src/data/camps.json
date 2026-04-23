@@ -1,0 +1,57 @@
+[
+  {
+    "slug": "scottish-highlands-wild-camp",
+    "title": "Scottish Highlands Wild Camp",
+    "subtitle": "Stargazing, lochs & untamed wilderness",
+    "location": "Scottish Highlands, UK",
+    "duration": "3 Days / 2 Nights",
+    "durationDays": 3,
+    "price": 349,
+    "currency": "GBP",
+    "category": "Wild Camping",
+    "tags": ["glamping", "wilderness", "stargazing", "uk"],
+    "heroImage": "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1200&q=80",
+    "gallery": [],
+    "overview": "Escape into the raw beauty of the Scottish Highlands on this guided wild camping experience. Sleep under a canopy of stars, explore ancient glens, and connect with nature in one of Europe's last true wildernesses.",
+    "highlights": ["Guided loch-side hike", "Wild foraging session", "Open fire cooking", "Stargazing with astronomy guide"],
+    "included": ["All camping equipment", "Meals & snacks", "Expert guide", "Transport from Inverness"],
+    "excluded": ["Travel to Inverness", "Personal items", "Alcohol"],
+    "capacity": 12,
+    "season": "April – October",
+    "itinerary": [
+      { "day": 1, "title": "Arrival & Base Camp", "description": "Meet at Inverness, travel to camp, set up tents, evening campfire dinner.", "meals": "Dinner", "accommodation": "Wild camping tent" },
+      { "day": 2, "title": "Loch Hike & Foraging", "description": "Full day hike through Glen Affric, wild foraging, open fire lunch, stargazing night.", "meals": "Breakfast, Lunch, Dinner", "accommodation": "Wild camping tent" },
+      { "day": 3, "title": "Morning swim & Departure", "description": "Optional loch dip, pack down camp, return to Inverness by noon.", "meals": "Breakfast", "accommodation": "" }
+    ],
+    "featured": true,
+    "popular": true,
+    "published": true
+  },
+  {
+    "slug": "lake-district-glamping-retreat",
+    "title": "Lake District Glamping Retreat",
+    "subtitle": "Luxury bell tents with stunning lakeside views",
+    "location": "Lake District, UK",
+    "duration": "2 Days / 1 Night",
+    "durationDays": 2,
+    "price": 229,
+    "currency": "GBP",
+    "category": "Glamping",
+    "tags": ["glamping", "luxury", "lakes", "uk"],
+    "heroImage": "https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=1200&q=80",
+    "gallery": [],
+    "overview": "Experience the Lake District from a beautifully furnished bell tent. Enjoy yoga at sunrise, kayaking on the lake, and a chef-prepared dinner under the stars.",
+    "highlights": ["Sunrise yoga session", "Kayaking on Windermere", "Chef-prepared dinner", "Fully furnished luxury tent"],
+    "included": ["Bell tent accommodation", "Breakfast & dinner", "Yoga session", "Kayak hire"],
+    "excluded": ["Travel to site", "Lunch", "Personal items"],
+    "capacity": 8,
+    "season": "May – September",
+    "itinerary": [
+      { "day": 1, "title": "Arrive & Settle In", "description": "Check in to your bell tent, afternoon kayaking, sunset dinner by the lake.", "meals": "Dinner", "accommodation": "Luxury bell tent" },
+      { "day": 2, "title": "Sunrise Yoga & Departure", "description": "Guided sunrise yoga, full breakfast, check out by 11am.", "meals": "Breakfast", "accommodation": "" }
+    ],
+    "featured": true,
+    "popular": false,
+    "published": true
+  }
+]

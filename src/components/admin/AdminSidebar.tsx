@@ -5,7 +5,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import {
   LayoutDashboard, Package, Image, MessageSquare, Mail,
-  Settings, LogOut, Globe, ChevronRight, Users,
+  Settings, LogOut, Globe, ChevronRight, Users, Tent,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { SITE_NAME } from '@/lib/site-config'
@@ -16,6 +16,7 @@ const navItems = [
   { href: '/admin/media', label: 'Media', icon: Image },
   { href: '/admin/testimonials', label: 'Testimonials', icon: MessageSquare },
   { href: '/admin/inquiries', label: 'Inquiries', icon: Mail },
+  { href: '/admin/camps', label: 'Camps', icon: Tent },
   { href: '/admin/admins', label: 'Admins', icon: Users },
   { href: '/admin/settings', label: 'Settings', icon: Settings },
 ]

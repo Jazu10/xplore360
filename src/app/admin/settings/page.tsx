@@ -38,14 +38,17 @@ export default function AdminSettingsPage() {
     setSaving(true); setSaved(false)
     try {
       const res = await fetch('/api/settings', {
-        method: 'PUT', headers: { 'Content-Type': 'application/json' },
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
         body: JSON.stringify(form),
       })
-      if (!res.ok) throw new Error()
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error || 'Failed')
       setSaved(true)
       toast.success('Settings saved!')
       setTimeout(() => setSaved(false), 3000)
-    } catch { toast.error('Failed to save settings') }
+    } catch (err) { toast.error(err instanceof Error ? err.message : 'Failed to save settings') }
     finally { setSaving(false) }
   }
 

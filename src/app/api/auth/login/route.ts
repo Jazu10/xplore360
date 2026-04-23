@@ -9,12 +9,12 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Username and password required' }, { status: 400 })
     }
 
-    const valid = await verifyAdminCredentials(username, password)
-    if (!valid) {
+    const role = await verifyAdminCredentials(username, password)
+    if (!role) {
       return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 })
     }
 
-    const token = signToken({ username, role: 'admin' })
+    const token = signToken({ username, role })
     const cookie = createAuthCookie(token)
 
     const res = NextResponse.json({ success: true })

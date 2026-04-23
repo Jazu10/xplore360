@@ -19,6 +19,7 @@ interface SiteSettings {
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/packages', label: 'Packages' },
+  { href: '/camps', label: 'Camps' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ]

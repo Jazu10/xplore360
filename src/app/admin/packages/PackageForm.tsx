@@ -191,7 +191,7 @@ export default function PackageForm({ initial, isEdit = false }: PackageFormProp
           <Field label="Duration (display)" required>
             <input type="text" required value={form.duration} onChange={(e) => set('duration', e.target.value)} className={inputCls} placeholder="e.g. 7 Nights / 8 Days" />
           </Field>
-          <Field label="Duration (nights)" required>
+          <Field label="Duration (days)" required>
             <input type="number" required min={1} value={form.durationDays} onChange={(e) => set('durationDays', Number(e.target.value))} className={inputCls} />
           </Field>
           <Field label="Price (GBP £)" required>

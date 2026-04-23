@@ -8,7 +8,7 @@ const TOKEN_EXPIRY = '7d'
 
 export interface AdminPayload {
   username: string
-  role: 'admin'
+  role: 'admin' | 'superadmin'
 }
 
 export function signToken(payload: AdminPayload): string {
@@ -31,7 +31,8 @@ export async function comparePassword(plain: string, hashed: string): Promise<bo
   return bcrypt.compare(plain, hashed)
 }
 
-export async function verifyAdminCredentials(username: string, password: string): Promise<boolean> {
+// Returns the role if credentials are valid, null if invalid
+export async function verifyAdminCredentials(username: string, password: string): Promise<'admin' | 'superadmin' | null> {
   const { isDBConfigured, connectDB } = await import('@/lib/db')
 
   if (isDBConfigured()) {
@@ -52,17 +53,18 @@ export async function verifyAdminCredentials(username: string, password: string)
       }
 
       const admin = await AdminModel.findOne({ username: username.toLowerCase() })
-      if (admin) return bcrypt.compare(password, admin.passwordHash)
+      if (admin) {
+        const valid = await bcrypt.compare(password, admin.passwordHash)
+        return valid ? (admin.role as 'admin' | 'superadmin') : null
+      }
     } catch {
       // fall through to env var fallback
     }
   }
 
-  // Fallback: env vars (no DB required)
-  return (
-    username === process.env.ADMIN_USERNAME &&
-    password === process.env.ADMIN_PASSWORD
-  )
+  // Fallback: env vars — treated as superadmin
+  const valid = username === process.env.ADMIN_USERNAME && password === process.env.ADMIN_PASSWORD
+  return valid ? 'superadmin' : null
 }
 
 export function getTokenFromRequest(req: NextRequest): string | null {

@@ -13,11 +13,16 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-  if (!getAdminFromRequest(req)) return NextResponse.json({ error: 'Unauthorised' }, { status: 401 })
+  const caller = getAdminFromRequest(req)
+  if (!caller) return NextResponse.json({ error: 'Unauthorised' }, { status: 401 })
   if (!isDBConfigured()) return NextResponse.json({ error: 'Database not configured' }, { status: 503 })
 
   const { username, password, email, role } = await req.json()
   if (!username || !password) return NextResponse.json({ error: 'Username and password required' }, { status: 400 })
+
+  // Only superadmins can create superadmins
+  if (role === 'superadmin' && caller.role !== 'superadmin')
+    return NextResponse.json({ error: 'Only superadmins can create superadmin accounts' }, { status: 403 })
 
   await connectDB()
   const exists = await AdminModel.findOne({ username: username.toLowerCase() })
