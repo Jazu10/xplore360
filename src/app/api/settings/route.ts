@@ -28,14 +28,12 @@ export async function PUT(req: NextRequest) {
   try {
     await connectDB()
     const body = await req.json()
-    let settings = await SettingsModel.findOne()
-    if (!settings) {
-      settings = await SettingsModel.create(body)
-    } else {
-      Object.assign(settings, body)
-      await settings.save()
-    }
-    return NextResponse.json(settings)
+    const updated = await SettingsModel.findOneAndUpdate(
+      {},
+      { $set: body },
+      { new: true, upsert: true, lean: true, runValidators: false }
+    )
+    return NextResponse.json(updated)
   } catch (err: unknown) {
     return NextResponse.json({ error: err instanceof Error ? err.message : 'Failed' }, { status: 400 })
   }
