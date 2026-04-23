@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { SITE_NAME } from '@/lib/site-config'
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
@@ -12,7 +13,7 @@ export default function TermsPage() {
         <p className="text-obsidian/50 text-sm">Last updated: January 2025</p>
         <section>
           <h2 className="font-serif text-2xl text-obsidian mt-8 mb-3">1. Enquiries</h2>
-          <p>Submitting an enquiry through our website does not constitute a booking. A booking is only confirmed once you have received a written confirmation from Raniya Travel and paid any required deposit.</p>
+          <p>Submitting an enquiry through our website does not constitute a booking. A booking is only confirmed once you have received a written confirmation from {SITE_NAME} and paid any required deposit.</p>
         </section>
         <section>
           <h2 className="font-serif text-2xl text-obsidian mt-8 mb-3">2. Pricing</h2>

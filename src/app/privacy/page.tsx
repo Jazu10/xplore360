@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { SITE_NAME, siteConfig } from '@/lib/site-config'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
@@ -12,7 +13,7 @@ export default function PrivacyPage() {
         <p className="text-obsidian/50 text-sm">Last updated: January 2025</p>
         <section>
           <h2 className="font-serif text-2xl text-obsidian mt-8 mb-3">1. Who We Are</h2>
-          <p>Raniya Travel (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) is a travel agency based in London, United Kingdom. We are committed to protecting your personal data in accordance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
+          <p>{SITE_NAME} (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) is a travel agency based in London, United Kingdom. We are committed to protecting your personal data in accordance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
         </section>
         <section>
           <h2 className="font-serif text-2xl text-obsidian mt-8 mb-3">2. Data We Collect</h2>
@@ -24,7 +25,7 @@ export default function PrivacyPage() {
         </section>
         <section>
           <h2 className="font-serif text-2xl text-obsidian mt-8 mb-3">4. Your Rights</h2>
-          <p>Under UK GDPR, you have the right to access, rectify, erase, or port your data. To exercise these rights, contact us at hello@raniyatravel.co.uk.</p>
+          <p>Under UK GDPR, you have the right to access, rectify, erase, or port your data. To exercise these rights, contact us at {siteConfig.email}.</p>
         </section>
         <section>
           <h2 className="font-serif text-2xl text-obsidian mt-8 mb-3">5. Cookies</h2>

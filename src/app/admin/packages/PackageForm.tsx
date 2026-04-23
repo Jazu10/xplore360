@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Plus, Trash2, ChevronDown, Loader2, Save, ArrowLeft, GripVertical } from 'lucide-react'
 import ImageUpload from '@/components/admin/ImageUpload'
 import toast from 'react-hot-toast'
+import { SITE_SLUG } from '@/lib/site-config'
 
 interface ItineraryDay { day: number; title: string; description: string; meals: string; accommodation: string }
 
@@ -224,7 +225,7 @@ export default function PackageForm({ initial, isEdit = false }: PackageFormProp
       {/* Section: Images */}
       <section className="bg-white border border-obsidian/8 p-8 space-y-6">
         <h2 className="font-serif text-xl text-obsidian border-b border-obsidian/8 pb-4">Images</h2>
-        <ImageUpload label="Hero Image *" value={form.heroImage} onChange={(url) => set('heroImage', url)} folder="xplore360/packages" />
+        <ImageUpload label="Hero Image *" value={form.heroImage} onChange={(url) => set('heroImage', url)} folder={`${SITE_SLUG}/packages`} />
 
         <div>
           <div className="flex items-center justify-between mb-3">
@@ -244,7 +245,7 @@ export default function PackageForm({ initial, isEdit = false }: PackageFormProp
                   <ImageUpload
                     value={url}
                     onChange={(val) => updateGallery(i, val)}
-                    folder="xplore360/packages"
+                    folder={`${SITE_SLUG}/packages`}
                   />
                   <button
                     type="button"

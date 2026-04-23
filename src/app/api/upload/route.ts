@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getAdminFromRequest } from '@/lib/auth'
 import { uploadImage, isCloudinaryConfigured } from '@/lib/cloudinary'
+import { SITE_SLUG } from '@/lib/site-config'
 
 export async function POST(req: NextRequest) {
   const admin = getAdminFromRequest(req)
@@ -16,7 +17,7 @@ export async function POST(req: NextRequest) {
   try {
     const formData = await req.formData()
     const file = formData.get('file') as File | null
-    const folder = (formData.get('folder') as string) || 'xplore360'
+    const folder = (formData.get('folder') as string) || SITE_SLUG
 
     if (!file) return NextResponse.json({ error: 'No file provided' }, { status: 400 })
 
