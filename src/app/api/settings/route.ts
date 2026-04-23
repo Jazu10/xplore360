@@ -5,6 +5,8 @@ import { getAdminFromRequest } from '@/lib/auth'
 import { seedIfEmpty } from '@/lib/seed'
 import configJson from '@/data/config.json'
 
+export const dynamic = 'force-dynamic'
+
 export async function GET() {
   if (!isDBConfigured()) {
     return NextResponse.json(configJson)
