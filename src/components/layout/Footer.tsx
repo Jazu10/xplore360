@@ -156,6 +156,9 @@ export default function Footer() {
           <p className="text-white/30 text-xs">
             © {year} {cfg.siteName}. All rights reserved.
           </p>
+          <p className="text-white/20 text-xs">
+            Made by Jaseem with ❤️
+          </p>
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="text-white/30 text-xs hover:text-white/60 transition-colors">
               Privacy Policy

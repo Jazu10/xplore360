@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { Save, Loader2, CheckCircle } from 'lucide-react'
 import ImageUpload from '@/components/admin/ImageUpload'
 import toast from 'react-hot-toast'
+import { siteConfig, SITE_SLUG } from '@/lib/site-config'
 
 interface Settings {
   siteName: string; tagline: string; logoUrl: string
@@ -13,7 +14,7 @@ interface Settings {
 }
 
 const DEFAULT: Settings = {
-  siteName: 'Xplore360', tagline: 'Curated Journeys, Extraordinary Experiences',
+  siteName: siteConfig.siteName, tagline: siteConfig.tagline,
   logoUrl: '', whatsapp: '', phone: '', email: '', address: 'London, United Kingdom',
   socialMedia: { instagram: '', facebook: '' },
 }
@@ -94,7 +95,7 @@ export default function AdminSettingsPage() {
             label="Logo (will replace text in Navbar & Footer)"
             value={form.logoUrl}
             onChange={(url) => set('logoUrl', url)}
-            folder="xplore360/branding"
+            folder={`${SITE_SLUG}/branding`}
           />
           {form.logoUrl && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="bg-obsidian p-4 inline-block">
@@ -121,7 +122,7 @@ export default function AdminSettingsPage() {
             </div>
             <div>
               <label className="block text-xs tracking-[0.2em] uppercase text-obsidian/50 mb-2">Email Address</label>
-              <input type="email" value={form.email} onChange={(e) => set('email', e.target.value)} className={inputCls} placeholder="hello@xplore360.co.uk" />
+              <input type="email" value={form.email} onChange={(e) => set('email', e.target.value)} className={inputCls} placeholder={siteConfig.email} />
             </div>
             <div>
               <label className="block text-xs tracking-[0.2em] uppercase text-obsidian/50 mb-2">Address</label>
@@ -136,11 +137,11 @@ export default function AdminSettingsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div>
               <label className="block text-xs tracking-[0.2em] uppercase text-obsidian/50 mb-2">Instagram URL</label>
-              <input type="url" value={form.socialMedia.instagram} onChange={(e) => set('socialMedia', { ...form.socialMedia, instagram: e.target.value })} className={inputCls} placeholder="https://instagram.com/xplore360" />
+              <input type="url" value={form.socialMedia.instagram} onChange={(e) => set('socialMedia', { ...form.socialMedia, instagram: e.target.value })} className={inputCls} placeholder={siteConfig.socialMedia.instagram} />
             </div>
             <div>
               <label className="block text-xs tracking-[0.2em] uppercase text-obsidian/50 mb-2">Facebook URL</label>
-              <input type="url" value={form.socialMedia.facebook} onChange={(e) => set('socialMedia', { ...form.socialMedia, facebook: e.target.value })} className={inputCls} placeholder="https://facebook.com/xplore360" />
+              <input type="url" value={form.socialMedia.facebook} onChange={(e) => set('socialMedia', { ...form.socialMedia, facebook: e.target.value })} className={inputCls} placeholder={siteConfig.socialMedia.facebook} />
             </div>
           </div>
         </section>

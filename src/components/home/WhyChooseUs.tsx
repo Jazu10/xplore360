@@ -3,6 +3,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Shield, Headphones, MapPin, Star, Clock, Heart } from 'lucide-react'
+import { SITE_NAME } from '@/lib/site-config'
 
 const reasons = [
   {
@@ -53,11 +54,11 @@ export default function WhyChooseUs() {
         >
           <span className="text-gold text-xs tracking-[0.35em] uppercase font-light flex items-center justify-center gap-3 mb-4">
             <span className="w-8 h-px bg-gold inline-block" />
-            Why Raniya Travel
+            Why {SITE_NAME}
             <span className="w-8 h-px bg-gold inline-block" />
           </span>
           <h2 className="font-serif text-4xl md:text-5xl text-obsidian leading-tight">
-            The Raniya <span className="italic text-gold">Difference</span>
+            The {SITE_NAME} <span className="italic text-gold">Difference</span>
           </h2>
           <p className="text-obsidian/50 text-lg font-light mt-5 max-w-xl mx-auto">
             We don&apos;t just book holidays — we craft experiences that become lifelong memories.

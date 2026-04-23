@@ -3,6 +3,7 @@
 import { useState, useRef } from 'react'
 import NextImage from 'next/image'
 import { Upload, X, Loader2 } from 'lucide-react'
+import { SITE_SLUG } from '@/lib/site-config'
 
 interface ImageUploadProps {
   value: string
@@ -15,7 +16,7 @@ export default function ImageUpload({
   value,
   onChange,
   label = 'Upload Image',
-  folder = 'xplore360',
+  folder = SITE_SLUG,
 }: ImageUploadProps) {
   const [uploading, setUploading] = useState(false)
   const [error, setError] = useState('')

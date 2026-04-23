@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Plus, Trash2, Loader2, Star, X, Edit } from 'lucide-react'
 import toast from 'react-hot-toast'
 import ImageUpload from '@/components/admin/ImageUpload'
+import { SITE_SLUG } from '@/lib/site-config'
 
 interface Testimonial {
   _id: string; name: string; location: string; avatar: string
@@ -121,7 +122,7 @@ export default function AdminTestimonialsPage() {
                   <label className="block text-xs tracking-[0.2em] uppercase text-obsidian/50 mb-2">Review Text *</label>
                   <textarea rows={5} required value={form.text} onChange={(e) => setForm((f) => ({ ...f, text: e.target.value }))} className={`${inputCls} resize-none`} placeholder="Customer's review…" />
                 </div>
-                <ImageUpload label="Avatar (optional)" value={form.avatar} onChange={(url) => setForm((f) => ({ ...f, avatar: url }))} folder="xplore360/avatars" />
+                <ImageUpload label="Avatar (optional)" value={form.avatar} onChange={(url) => setForm((f) => ({ ...f, avatar: url }))} folder={`${SITE_SLUG}/avatars`} />
                 <label className="flex items-center gap-2 cursor-pointer">
                   <input type="checkbox" checked={form.published} onChange={(e) => setForm((f) => ({ ...f, published: e.target.checked }))} className="accent-gold" />
                   <span className="text-sm text-obsidian/60">Published</span>
