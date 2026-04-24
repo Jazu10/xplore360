@@ -4,7 +4,7 @@ import { useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
-import { MapPin, Clock, ArrowRight, Tent } from 'lucide-react'
+import { MapPin, Clock, ArrowRight, Tent, Star } from 'lucide-react'
 import { formatPrice } from '@/lib/utils'
 
 interface Camp {
@@ -19,6 +19,8 @@ interface Camp {
   currency: string
   heroImage?: string
   popular?: boolean
+  rating?: number
+  reviewCount?: number
 }
 
 interface FeaturedCampsProps {
@@ -121,10 +123,16 @@ function CampCard({ camp, index, inView }: { camp: Camp; index: number; inView: 
             <Clock size={13} />
             {camp.duration || `${camp.durationDays} day${camp.durationDays !== 1 ? 's' : ''}`}
           </div>
-          <p className="font-serif text-obsidian text-lg font-semibold">
-            {formatPrice(camp.price)}
-            <span className="text-obsidian/40 text-xs font-sans ml-1">pp</span>
-          </p>
+          <div className="flex items-center gap-3">
+            <span className="flex items-center gap-1 text-obsidian/40 text-xs">
+              <Star size={11} className="fill-gold text-gold" />
+              {(camp.reviewCount ?? 0) > 0 ? (camp.rating ?? 0).toFixed(1) : '—'}
+            </span>
+            <p className="font-serif text-obsidian text-lg font-semibold">
+              {formatPrice(camp.price)}
+              <span className="text-obsidian/40 text-xs font-sans ml-1">pp</span>
+            </p>
+          </div>
         </div>
       </Link>
     </motion.div>
