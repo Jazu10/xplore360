@@ -19,6 +19,7 @@ interface CampFormData {
   highlights: string; included: string; excluded: string
   itinerary: ItineraryDay[]
   featured: boolean; popular: boolean; published: boolean
+  bookingFormUrl: string
 }
 
 const EMPTY: CampFormData = {
@@ -27,6 +28,7 @@ const EMPTY: CampFormData = {
   tags: '', capacity: '', season: '', heroImage: '', gallery: [], overview: '',
   highlights: '', included: '', excluded: '', itinerary: [],
   featured: false, popular: false, published: true,
+  bookingFormUrl: '',
 }
 
 const CATEGORIES = ['Adventure', 'Glamping', 'Wild Camping', 'Safari', 'Beach Camp', 'Mountain Camp', 'Family Camp']
@@ -186,6 +188,9 @@ export default function CampForm({ initial, isEdit = false }: CampFormProps) {
           </Field>
           <Field label="Season">
             <input type="text" value={form.season} onChange={(e) => set('season', e.target.value)} className={inputCls} placeholder="e.g. April – October" />
+          </Field>
+          <Field label="Booking Form URL (Google Form link)">
+            <input type="url" value={form.bookingFormUrl} onChange={(e) => set('bookingFormUrl', e.target.value)} className={inputCls} placeholder="https://forms.gle/..." />
           </Field>
         </div>
         <div className="flex items-center gap-6 pt-2">

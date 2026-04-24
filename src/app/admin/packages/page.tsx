@@ -22,7 +22,7 @@ export default function AdminPackagesPage() {
 
   const load = () => {
     setLoading(true)
-    fetch('/api/packages')
+    fetch('/api/packages', { cache: 'no-store' })
       .then((r) => r.json())
       .then((d) => { if (Array.isArray(d)) setPackages(d) })
       .catch(() => toast.error('Failed to load packages'))

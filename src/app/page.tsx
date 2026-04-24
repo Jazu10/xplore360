@@ -9,7 +9,7 @@ import InstagramFeed from '@/components/home/InstagramFeed'
 import StickyBooking from '@/components/ui/StickyBooking'
 import { getPackagesData, getTestimonialsData, getCampsData } from '@/lib/data'
 
-export const revalidate = 60
+export const revalidate = 0
 
 export default async function HomePage() {
   const [packages, testimonials, camps] = await Promise.all([

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Phone, Mail, MessageCircle, MapPin, CheckCircle, Loader2, AlertCircle } from 'lucide-react'
@@ -9,9 +9,26 @@ import { buildWhatsAppUrl, buildEmailUrl } from '@/lib/utils'
 import { SITE_NAME } from '@/lib/site-config'
 import { useSettings } from '@/hooks/useSettings'
 
+interface EnquiryOption { value: string; label: string; group: string }
+
 export default function ContactClient() {
   const cfg = useSettings()
   const [form, setForm] = useState({ name: '', email: '', phone: '', destination: '', message: '', consent: false })
+  const [enquiryOptions, setEnquiryOptions] = useState<EnquiryOption[]>([])
+
+  useEffect(() => {
+    Promise.all([
+      fetch('/api/packages?limit=100').then(r => r.json()).catch(() => null),
+      fetch('/api/camps?limit=100').then(r => r.json()).catch(() => null),
+    ]).then(([pkgData, campData]) => {
+      const opts: EnquiryOption[] = []
+      const pkgs: { title: string }[] = Array.isArray(pkgData) ? pkgData : (pkgData?.packages ?? [])
+      const camps: { title: string }[] = Array.isArray(campData) ? campData : (campData?.camps ?? [])
+      pkgs.forEach(p => opts.push({ value: p.title, label: p.title, group: 'Packages' }))
+      camps.forEach(c => opts.push({ value: c.title, label: c.title, group: 'Camps' }))
+      setEnquiryOptions(opts)
+    })
+  }, [])
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
 
@@ -162,11 +179,32 @@ export default function ContactClient() {
                 </div>
 
                 <div>
-                  <label className="block text-xs tracking-[0.2em] uppercase text-obsidian/50 mb-2">Destination Interest</label>
-                  <input type="text" value={form.destination}
-                    onChange={(e) => setForm({ ...form, destination: e.target.value })}
-                    className="w-full border border-obsidian/15 py-3 px-4 text-sm focus:outline-none focus:border-gold transition-colors"
-                    placeholder="e.g. Maldives, Dubai, Bali..." />
+                  <label className="block text-xs tracking-[0.2em] uppercase text-obsidian/50 mb-2">Package / Camp of Interest</label>
+                  {enquiryOptions.length > 0 ? (
+                    <select
+                      value={form.destination}
+                      onChange={(e) => setForm({ ...form, destination: e.target.value })}
+                      className="w-full border border-obsidian/15 py-3 px-4 text-sm focus:outline-none focus:border-gold transition-colors bg-white"
+                    >
+                      <option value="">Select a package or camp…</option>
+                      {['Packages', 'Camps'].map(group => {
+                        const items = enquiryOptions.filter(o => o.group === group)
+                        if (!items.length) return null
+                        return (
+                          <optgroup key={group} label={group}>
+                            {items.map(o => (
+                              <option key={o.value} value={o.value}>{o.label}</option>
+                            ))}
+                          </optgroup>
+                        )
+                      })}
+                    </select>
+                  ) : (
+                    <input type="text" value={form.destination}
+                      onChange={(e) => setForm({ ...form, destination: e.target.value })}
+                      className="w-full border border-obsidian/15 py-3 px-4 text-sm focus:outline-none focus:border-gold transition-colors"
+                      placeholder="e.g. Maldives, Dubai, Bali..." />
+                  )}
                 </div>
 
                 <div>

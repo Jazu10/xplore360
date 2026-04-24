@@ -113,10 +113,10 @@ function FeaturedCard({ pkg, index, inView }: { pkg: Package; index: number; inV
                 {pkg.duration.split('/')[0].trim()}
               </span>
             )}
-            {pkg.rating && (
+            {pkg.rating > 0 && pkg.reviewCount > 0 && (
               <span className="flex items-center gap-1">
                 <Star size={13} className="text-gold fill-gold" />
-                {pkg.rating}
+                {pkg.rating.toFixed(1)}
               </span>
             )}
           </div>

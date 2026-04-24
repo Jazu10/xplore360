@@ -33,6 +33,7 @@ export interface IPackage extends Document {
   published: boolean
   rating: number
   reviewCount: number
+  bookingFormUrl?: string
   createdAt: Date
   updatedAt: Date
 }
@@ -69,8 +70,9 @@ const PackageSchema = new Schema<IPackage>(
     featured: { type: Boolean, default: false },
     popular: { type: Boolean, default: false },
     published: { type: Boolean, default: true },
-    rating: { type: Number, default: 5.0 },
+    rating: { type: Number, default: 0 },
     reviewCount: { type: Number, default: 0 },
+    bookingFormUrl: { type: String },
   },
   { timestamps: true }
 )

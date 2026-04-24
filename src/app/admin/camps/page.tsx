@@ -18,7 +18,7 @@ export default function AdminCampsPage() {
   const load = async () => {
     setLoading(true)
     try {
-      const res = await fetch('/api/camps', { credentials: 'include' })
+      const res = await fetch('/api/camps', { credentials: 'include', cache: 'no-store' })
       const data = await res.json()
       setCamps(Array.isArray(data) ? data : [])
     } catch { toast.error('Failed to load camps') }

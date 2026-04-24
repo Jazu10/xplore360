@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { MapPin, Clock, Users, ChevronRight, Tent, Loader2 } from 'lucide-react'
+import { MapPin, Clock, Users, ChevronRight, Tent, Loader2, Star } from 'lucide-react'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import campsJson from '@/data/camps.json'
 
@@ -13,6 +13,7 @@ interface Camp {
   duration?: string; durationDays: number; price: number; currency: string
   category: string; heroImage?: string; overview?: string
   capacity?: number; season?: string; featured?: boolean; popular?: boolean
+  rating?: number; reviewCount?: number; bookingFormUrl?: string
 }
 
 export default function CampsPage() {
@@ -21,7 +22,7 @@ export default function CampsPage() {
   const [category, setCategory] = useState('All')
 
   useEffect(() => {
-    fetch('/api/camps')
+    fetch('/api/camps', { cache: 'no-store' })
       .then((r) => r.json())
       .then((d) => { if (Array.isArray(d) && d.length > 0) setCamps(d) })
       .catch(() => {})
@@ -79,39 +80,59 @@ export default function CampsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filtered.map((camp, i) => (
               <AnimatedSection key={camp._id || camp.slug} delay={i * 0.07}>
-                <Link href={`/camps/${camp.slug}`} className="group block">
-                  <div className="relative overflow-hidden aspect-[4/3] mb-5">
-                    {camp.heroImage ? (
-                      <Image src={camp.heroImage} alt={camp.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="(max-width:768px) 100vw, 33vw" />
-                    ) : (
-                      <div className="w-full h-full bg-beige flex items-center justify-center">
-                        <Tent size={40} className="text-obsidian/20" />
+                <div>
+                  <Link href={`/camps/${camp.slug}`} className="group block">
+                    <div className="relative overflow-hidden aspect-[4/3] mb-5">
+                      {camp.heroImage ? (
+                        <Image src={camp.heroImage} alt={camp.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="(max-width:768px) 100vw, 33vw" />
+                      ) : (
+                        <div className="w-full h-full bg-beige flex items-center justify-center">
+                          <Tent size={40} className="text-obsidian/20" />
+                        </div>
+                      )}
+                      <div className="absolute top-3 left-3 flex gap-2">
+                        {camp.popular && <span className="bg-gold text-white text-[10px] tracking-widest uppercase px-2 py-1">Popular</span>}
+                        <span className="bg-obsidian/70 text-white text-[10px] tracking-widest uppercase px-2 py-1">{camp.category}</span>
                       </div>
-                    )}
-                    <div className="absolute top-3 left-3 flex gap-2">
-                      {camp.popular && <span className="bg-gold text-white text-[10px] tracking-widest uppercase px-2 py-1">Popular</span>}
-                      <span className="bg-obsidian/70 text-white text-[10px] tracking-widest uppercase px-2 py-1">{camp.category}</span>
                     </div>
-                  </div>
-                  <div>
-                    <h3 className="font-serif text-xl text-obsidian mb-1 group-hover:text-gold transition-colors">{camp.title}</h3>
-                    {camp.subtitle && <p className="text-obsidian/50 text-sm mb-3">{camp.subtitle}</p>}
-                    <div className="flex flex-wrap items-center gap-4 text-xs text-obsidian/40 mb-4">
-                      <span className="flex items-center gap-1"><MapPin size={11} />{camp.location}</span>
-                      {camp.duration && <span className="flex items-center gap-1"><Clock size={11} />{camp.duration}</span>}
-                      {camp.capacity && <span className="flex items-center gap-1"><Users size={11} />Up to {camp.capacity} people</span>}
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <span className="text-xs text-obsidian/40 uppercase tracking-widest">From</span>
-                        <p className="font-serif text-2xl text-obsidian">{camp.currency}{camp.price.toLocaleString()}</p>
+                    <div>
+                      <h3 className="font-serif text-xl text-obsidian mb-1 group-hover:text-gold transition-colors">{camp.title}</h3>
+                      {camp.subtitle && <p className="text-obsidian/50 text-sm mb-3">{camp.subtitle}</p>}
+                      <div className="flex flex-wrap items-center gap-4 text-xs text-obsidian/40 mb-4">
+                        <span className="flex items-center gap-1"><MapPin size={11} />{camp.location}</span>
+                        {camp.duration && <span className="flex items-center gap-1"><Clock size={11} />{camp.duration}</span>}
+                        {camp.capacity && <span className="flex items-center gap-1"><Users size={11} />Up to {camp.capacity} people</span>}
                       </div>
-                      <span className="flex items-center gap-1 text-gold text-sm font-medium group-hover:gap-2 transition-all">
-                        View <ChevronRight size={14} />
-                      </span>
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <span className="text-xs text-obsidian/40 uppercase tracking-widest">From</span>
+                          <p className="font-serif text-2xl text-obsidian">{camp.currency}{camp.price.toLocaleString()}</p>
+                        </div>
+                        <div className="flex flex-col items-end gap-1">
+                          {(camp.reviewCount ?? 0) > 0 && (
+                            <span className="flex items-center gap-1 text-xs text-obsidian/40">
+                              <Star size={11} className="fill-gold text-gold" />
+                              {(camp.rating ?? 0).toFixed(1)} ({camp.reviewCount})
+                            </span>
+                          )}
+                          <span className="flex items-center gap-1 text-gold text-sm font-medium group-hover:gap-2 transition-all">
+                            View <ChevronRight size={14} />
+                          </span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </Link>
+                  </Link>
+                  {camp.bookingFormUrl && (
+                    <a
+                      href={camp.bookingFormUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-4 w-full flex items-center justify-center gap-2 bg-gold text-white text-xs tracking-[0.15em] uppercase py-3 hover:bg-gold/90 transition-colors"
+                    >
+                      Book Now
+                    </a>
+                  )}
+                </div>
               </AnimatedSection>
             ))}
           </div>

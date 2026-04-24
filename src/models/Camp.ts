@@ -33,6 +33,9 @@ const CampSchema = new Schema(
     featured: { type: Boolean, default: false },
     popular: { type: Boolean, default: false },
     published: { type: Boolean, default: true },
+    rating: { type: Number, default: 0 },
+    reviewCount: { type: Number, default: 0 },
+    bookingFormUrl: { type: String },
   },
   { timestamps: true }
 )

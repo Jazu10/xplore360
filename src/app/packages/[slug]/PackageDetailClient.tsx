@@ -11,6 +11,7 @@ import {
 import BookingCTAs from '@/components/ui/BookingCTAs'
 import StickyBooking from '@/components/ui/StickyBooking'
 import AnimatedSection from '@/components/ui/AnimatedSection'
+import ReviewSection from '@/components/reviews/ReviewSection'
 import { formatPrice } from '@/lib/utils'
 import { Package } from '@/types'
 
@@ -21,6 +22,8 @@ interface PackageDetailClientProps {
 export default function PackageDetailClient({ pkg }: PackageDetailClientProps) {
   const [activeDay, setActiveDay] = useState<number | null>(0)
   const [galleryIndex, setGalleryIndex] = useState(0)
+  const [liveRating, setLiveRating] = useState(pkg.rating)
+  const [liveReviewCount, setLiveReviewCount] = useState(pkg.reviewCount)
   const heroRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] })
   const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '40%'])
@@ -85,10 +88,12 @@ export default function PackageDetailClient({ pkg }: PackageDetailClientProps) {
                   <Star
                     key={i}
                     size={13}
-                    className={i < Math.floor(pkg.rating) ? 'fill-gold text-gold' : 'text-white/20'}
+                    className={i < Math.floor(liveRating) ? 'fill-gold text-gold' : 'text-white/20'}
                   />
                 ))}
-                <span className="text-white/60 text-sm ml-1">{pkg.rating} ({pkg.reviewCount} reviews)</span>
+                <span className="text-white/60 text-sm ml-1">
+                  {liveRating > 0 ? liveRating.toFixed(1) : '—'} ({liveReviewCount} reviews)
+                </span>
               </div>
             </div>
           </motion.div>
@@ -319,11 +324,11 @@ export default function PackageDetailClient({ pkg }: PackageDetailClientProps) {
                           <Star
                             key={i}
                             size={12}
-                            className={i < Math.floor(pkg.rating) ? 'fill-gold text-gold' : 'text-obsidian/20'}
+                            className={i < Math.floor(liveRating) ? 'fill-gold text-gold' : 'text-obsidian/20'}
                           />
                         ))}
                       </div>
-                      <span className="text-obsidian/50 text-xs">{pkg.reviewCount} reviews</span>
+                      <span className="text-obsidian/50 text-xs">{liveReviewCount} reviews</span>
                     </div>
                   </div>
 
@@ -348,6 +353,16 @@ export default function PackageDetailClient({ pkg }: PackageDetailClientProps) {
                     </p>
                   </div>
 
+                  {pkg.bookingFormUrl && (
+                    <a
+                      href={pkg.bookingFormUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full flex items-center justify-center gap-2 bg-gold text-white py-4 text-sm font-medium tracking-widest uppercase hover:bg-gold/90 transition-colors mb-3"
+                    >
+                      Book Now
+                    </a>
+                  )}
                   <BookingCTAs packageName={pkg.title} layout="vertical" size="md" />
                 </div>
 
@@ -363,6 +378,15 @@ export default function PackageDetailClient({ pkg }: PackageDetailClientProps) {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Reviews */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <ReviewSection
+          targetSlug={pkg.slug}
+          targetType="package"
+          onStatsChange={(r, c) => { setLiveRating(r); setLiveReviewCount(c) }}
+        />
       </div>
 
       <StickyBooking packageName={pkg.title} />

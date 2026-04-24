@@ -31,6 +31,7 @@ export interface Package {
   popular: boolean
   rating: number
   reviewCount: number
+  bookingFormUrl?: string
 }
 
 export interface Testimonial {

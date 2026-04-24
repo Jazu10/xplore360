@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { connectDB, isDBConfigured } from '@/lib/db'
+
+export const dynamic = 'force-dynamic'
 import CampModel from '@/models/Camp'
 import { getAdminFromRequest } from '@/lib/auth'
 import campsJson from '@/data/camps.json'

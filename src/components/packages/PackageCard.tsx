@@ -89,12 +89,24 @@ export default function PackageCard({ pkg, index = 0 }: PackageCardProps) {
             </span>
             <span className="flex items-center gap-1 ml-auto">
               <Star size={13} className="fill-gold text-gold" />
-              {pkg.rating}
+              {pkg.rating > 0 ? pkg.rating.toFixed(1) : '—'}
               <span className="text-obsidian/30">({pkg.reviewCount})</span>
             </span>
           </div>
         </div>
       </Link>
+
+      {pkg.bookingFormUrl && (
+        <a
+          href={pkg.bookingFormUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 w-full flex items-center justify-center gap-2 bg-gold text-white text-xs tracking-[0.15em] uppercase py-3 hover:bg-gold/90 transition-colors"
+          onClick={(e) => e.stopPropagation()}
+        >
+          Book Now
+        </a>
+      )}
     </motion.article>
   )
 }

@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { connectDB, isDBConfigured } from '@/lib/db'
+
+export const dynamic = 'force-dynamic'
 import PackageModel from '@/models/Package'
 import { getAdminFromRequest } from '@/lib/auth'
 import { seedIfEmpty } from '@/lib/seed'

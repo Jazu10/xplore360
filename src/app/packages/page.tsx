@@ -16,7 +16,7 @@ export default function PackagesPage() {
   })
 
   useEffect(() => {
-    fetch('/api/packages')
+    fetch('/api/packages', { cache: 'no-store' })
       .then((r) => r.json())
       .then((d) => { if (Array.isArray(d)) setPackages(d) })
       .catch(() => import('@/data/packages.json').then((m) => setPackages(m.default as Package[])))

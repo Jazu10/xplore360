@@ -4,7 +4,7 @@ import campsJson from '@/data/camps.json'
 import CampDetailClient from './CampDetailClient'
 import { isDBConfigured, connectDB } from '@/lib/db'
 
-export const revalidate = 60
+export const revalidate = 0
 
 interface Props { params: { slug: string } }
 

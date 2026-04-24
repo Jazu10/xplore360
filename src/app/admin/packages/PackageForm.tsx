@@ -34,6 +34,7 @@ interface PackageFormData {
   featured: boolean
   popular: boolean
   published: boolean
+  bookingFormUrl: string
 }
 
 const EMPTY_FORM: PackageFormData = {
@@ -42,6 +43,7 @@ const EMPTY_FORM: PackageFormData = {
   tags: '', heroImage: '', gallery: [], overview: '',
   highlights: '', included: '', excluded: '', itinerary: [],
   instagramVideos: '', featured: false, popular: false, published: true,
+  bookingFormUrl: '',
 }
 
 const CATEGORIES = ['Beach & Islands', 'City & Culture', 'Culture & Wellness', 'Culture & Heritage', 'Adventure']
@@ -208,6 +210,9 @@ export default function PackageForm({ initial, isEdit = false }: PackageFormProp
           </Field>
           <Field label="Tags (comma-separated)">
             <input type="text" value={form.tags} onChange={(e) => set('tags', e.target.value)} className={inputCls} placeholder="Beach, Luxury, Honeymoon" />
+          </Field>
+          <Field label="Booking Form URL (Google Form link)">
+            <input type="url" value={form.bookingFormUrl} onChange={(e) => set('bookingFormUrl', e.target.value)} className={inputCls} placeholder="https://forms.gle/..." />
           </Field>
         </div>
         <div className="flex items-center gap-6 pt-2">

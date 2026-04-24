@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { MapPin, Clock, Users, Calendar, CheckCircle, XCircle, ChevronDown, Phone, MessageCircle } from 'lucide-react'
 import AnimatedSection from '@/components/ui/AnimatedSection'
+import ReviewSection from '@/components/reviews/ReviewSection'
 import { useState } from 'react'
 import { buildWhatsAppUrl } from '@/lib/utils'
 import { useSettings } from '@/hooks/useSettings'
@@ -16,7 +17,7 @@ interface Camp {
   category: string; heroImage?: string; gallery?: string[]; overview?: string
   highlights?: string[]; included?: string[]; excluded?: string[]
   capacity?: number; season?: string; itinerary?: ItineraryDay[]
-  featured?: boolean; popular?: boolean
+  featured?: boolean; popular?: boolean; bookingFormUrl?: string
 }
 
 export default function CampDetailClient({ camp }: { camp: Camp }) {
@@ -152,6 +153,12 @@ export default function CampDetailClient({ camp }: { camp: Camp }) {
               </div>
 
               <div className="space-y-3 pt-2">
+                {camp.bookingFormUrl && (
+                  <a href={camp.bookingFormUrl} target="_blank" rel="noopener noreferrer"
+                    className="w-full flex items-center justify-center gap-2 bg-gold text-white py-4 text-sm font-medium tracking-widest uppercase hover:bg-gold/90 transition-colors">
+                    Book Now
+                  </a>
+                )}
                 <a href={buildWhatsAppUrl(whatsapp, whatsappMsg)} target="_blank" rel="noopener noreferrer"
                   className="w-full flex items-center justify-center gap-2 bg-[#25D366] text-white py-4 text-sm font-medium tracking-wide hover:bg-[#1fb855] transition-colors">
                   <MessageCircle size={16} /> Book via WhatsApp
@@ -187,6 +194,9 @@ export default function CampDetailClient({ camp }: { camp: Camp }) {
             </div>
           </div>
         </div>
+
+        {/* Reviews */}
+        <ReviewSection targetSlug={camp.slug} targetType="camp" />
       </div>
     </div>
   )
