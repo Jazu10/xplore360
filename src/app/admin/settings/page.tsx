@@ -154,7 +154,7 @@ export default function AdminSettingsPage() {
             Email sending is configured via <code className="bg-white px-1.5 py-0.5 text-xs border border-obsidian/10">.env.local</code> — not stored in the database for security. Enquiries are delivered to the <strong>Email Address</strong> set above.
           </p>
           <div className="grid grid-cols-2 gap-2 text-xs text-obsidian/50 font-mono">
-            {['EMAIL_HOST', 'EMAIL_PORT', 'EMAIL_USER', 'EMAIL_PASS'].map((key) => (
+            {['SMTP_HOST', 'SMTP_PORT', 'SMTP_EMAIL', 'SMTP_PASSWORD', 'SMTP_FROM_EMAIL', 'SMTP_FROM_NAME'].map((key) => (
               <div key={key} className="bg-white px-3 py-2 border border-obsidian/10">{key}</div>
             ))}
           </div>
