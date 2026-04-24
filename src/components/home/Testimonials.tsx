@@ -20,6 +20,8 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
 
   const active = testimonials[activeIndex]
 
+  if (!testimonials.length || !active) return null
+
   return (
     <section ref={ref} className="py-28 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -61,7 +63,7 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
               >
                 {/* Stars */}
                 <div className="flex gap-1 mb-6">
-                  {Array.from({ length: active.rating }).map((_, i) => (
+                  {Array.from({ length: active.rating ?? 0 }).map((_, i) => (
                     <Star key={i} size={16} className="fill-gold text-gold" />
                   ))}
                 </div>

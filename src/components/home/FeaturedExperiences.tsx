@@ -107,14 +107,18 @@ function FeaturedCard({ pkg, index, inView }: { pkg: Package; index: number; inV
         {/* Meta */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4 text-obsidian/50 text-sm">
-            <span className="flex items-center gap-1.5">
-              <Clock size={13} />
-              {pkg.duration.split('/')[0].trim()}
-            </span>
-            <span className="flex items-center gap-1">
-              <Star size={13} className="text-gold fill-gold" />
-              {pkg.rating}
-            </span>
+            {pkg.duration && (
+              <span className="flex items-center gap-1.5">
+                <Clock size={13} />
+                {pkg.duration.split('/')[0].trim()}
+              </span>
+            )}
+            {pkg.rating && (
+              <span className="flex items-center gap-1">
+                <Star size={13} className="text-gold fill-gold" />
+                {pkg.rating}
+              </span>
+            )}
           </div>
           <div className="text-right">
             {pkg.originalPrice && (
