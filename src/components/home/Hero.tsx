@@ -96,8 +96,8 @@ export default function Hero() {
             transition={{ duration: 0.9, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="text-white/70 text-lg md:text-xl font-light leading-relaxed max-w-xl mb-12"
           >
-            Bespoke luxury travel experiences, crafted for discerning travellers.
-            From Maldivian overwater villas to Rajasthani palace suites.
+            Travel with like-minded explorers. Meet new people, discover new places,
+            and create stories worth telling — no solo planning, no awkward first meetings.
           </motion.p>
 
           {/* CTAs */}
