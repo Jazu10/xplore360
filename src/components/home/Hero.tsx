@@ -53,7 +53,7 @@ export default function Hero() {
             {/* Content */}
             <motion.div
                 style={{ y: textY, opacity }}
-                className="relative z-10 h-full flex flex-col justify-center items-start px-6 lg:px-16 max-w-7xl mx-auto">
+                className="relative z-20 h-full flex flex-col justify-center items-start px-6 lg:px-16 max-w-7xl mx-auto">
                 <div className="max-w-3xl">
                     {/* Pre-heading */}
                     <motion.div
