@@ -83,9 +83,9 @@ export default function AdminInquiriesPage() {
       {loading ? (
         <div className="flex items-center justify-center py-24"><Loader2 size={28} className="text-gold animate-spin" /></div>
       ) : (
-        <div className="flex gap-6">
+        <div className="flex gap-6 min-w-0">
           {/* List */}
-          <div className="flex-1 space-y-2">
+          <div className="flex-1 min-w-0 space-y-2">
             {filtered.length === 0 ? (
               <p className="text-obsidian/30 text-center py-16 font-serif text-xl">No enquiries</p>
             ) : (
@@ -140,7 +140,7 @@ export default function AdminInquiriesPage() {
                 <div className="flex items-center gap-1.5 text-obsidian/40 text-xs mb-2">
                   <MessageSquare size={11} /> Message
                 </div>
-                <p className="text-sm text-obsidian/70 leading-relaxed">{selected.message}</p>
+                <p className="text-sm text-obsidian/70 leading-relaxed break-words">{selected.message}</p>
               </div>
 
               {/* Actions */}

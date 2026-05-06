@@ -49,6 +49,7 @@ export default function AdminSettingsPage() {
       if (!res.ok) throw new Error(data.error || `Server error (${res.status})`)
       setSaved(true)
       toast.success('Settings saved!')
+      window.dispatchEvent(new CustomEvent('settingsUpdated'))
       setTimeout(() => setSaved(false), 3000)
     } catch (err) { toast.error(err instanceof Error ? err.message : 'Failed to save settings') }
     finally { setSaving(false) }

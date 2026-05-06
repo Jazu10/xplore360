@@ -42,13 +42,19 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
-    useEffect(() => {
-        fetch("/api/settings")
+    const fetchSettings = () => {
+        fetch("/api/settings", { cache: "no-store" })
             .then((r) => r.json())
             .then((data) => {
                 if (data && !data.error) setSettings(data);
             })
             .catch(() => {});
+    };
+
+    useEffect(() => {
+        fetchSettings();
+        window.addEventListener("settingsUpdated", fetchSettings);
+        return () => window.removeEventListener("settingsUpdated", fetchSettings);
     }, []);
 
     useEffect(() => {
