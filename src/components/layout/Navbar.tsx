@@ -86,18 +86,17 @@ export default function Navbar() {
                             href="/"
                             className="flex items-center gap-3 group">
                             {settings.logoUrl ? (
-                                <div className="relative h-10 w-auto">
+                                <div className="relative h-12 w-auto">
                                     <Image
                                         src={settings.logoUrl}
                                         alt={settings.siteName}
-                                        height={40}
-                                        width={160}
-                                        className="h-10 w-auto object-contain"
+                                        height={48}
+                                        width={180}
+                                        className="h-12 w-auto object-contain"
                                         style={{
-                                            filter:
-                                                scrolled || !isHome
-                                                    ? "none"
-                                                    : "brightness(0) invert(1)",
+                                            filter: scrolled || !isHome
+                                                ? "none"
+                                                : "drop-shadow(0 1px 3px rgba(0,0,0,0.5))",
                                         }}
                                     />
                                 </div>
@@ -157,14 +156,14 @@ export default function Navbar() {
                             </a>
 
                             <Link
-                                href="/contact"
+                                href="/packages"
                                 className={cn(
                                     "hidden md:inline-flex items-center gap-2 px-6 py-3 text-xs tracking-widest uppercase font-medium overflow-hidden relative group",
                                     scrolled || !isHome
                                         ? "bg-gold text-white"
                                         : "border border-white/40 text-white hover:bg-white/10",
                                 )}>
-                                Enquire Now
+                                Book Now
                             </Link>
 
                             <button
@@ -225,6 +224,11 @@ export default function Navbar() {
                                     <Phone size={16} />
                                     {settings.phone}
                                 </a>
+                                <Link
+                                    href="/packages"
+                                    className="inline-flex items-center justify-center gap-2 w-full bg-gold text-white py-4 text-sm tracking-widest uppercase font-medium">
+                                    Book Now
+                                </Link>
                             </motion.div>
                         </div>
                     </motion.div>

@@ -349,7 +349,7 @@ export default function PackageDetailClient({ pkg }: PackageDetailClientProps) {
 
                   <div className="bg-beige p-4 mb-6 text-center">
                     <p className="text-obsidian/60 text-xs leading-relaxed">
-                      No payment online — our specialist will contact you within 2 hours to confirm availability and details.
+                      No payment online — our specialist will contact you within 48 hours to confirm availability and details.
                     </p>
                   </div>
 

@@ -122,7 +122,7 @@ export default function ContactClient() {
                 <div>
                   <p className="text-xs tracking-widest uppercase text-obsidian/40 mb-1">Email</p>
                   <p className="font-medium text-obsidian group-hover:text-gold transition-colors">{cfg.email}</p>
-                  <p className="text-obsidian/40 text-sm">We reply within 2 hours</p>
+                  <p className="text-obsidian/40 text-sm">We reply within 48 hours</p>
                 </div>
               </a>
 
@@ -144,7 +144,7 @@ export default function ContactClient() {
                 <CheckCircle size={60} className="text-gold mb-6" />
                 <h3 className="font-serif text-3xl text-obsidian mb-3">Thank You!</h3>
                 <p className="text-obsidian/50 text-lg max-w-sm">
-                  We&apos;ve received your enquiry and will be in touch within 2 hours.
+                  We&apos;ve received your enquiry and will be in touch within 48 hours.
                 </p>
                 <button onClick={() => setStatus('idle')}
                   className="mt-8 text-gold text-sm underline underline-offset-4">

@@ -128,7 +128,7 @@ export default function Hero() {
                             href="/packages"
                             className="group relative inline-flex items-center gap-3 bg-gold text-white px-8 py-4 text-sm tracking-widest uppercase font-medium overflow-hidden">
                             <span className="relative z-10 flex items-center gap-3">
-                                Explore Packages
+                                Book now
                                 <motion.span
                                     className="inline-block"
                                     animate={{ x: [0, 4, 0] }}
